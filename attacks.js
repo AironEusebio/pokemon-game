@@ -16,29 +16,62 @@ const level = {
     {
       question: "What is the Synonyms for <u>beautiful</u>",
       answers: {
-        firstChoice: ["Aesthetic", true],
-        secondChoice: ["Ugly", false],
-        thirdChoice: ["Funny", false],
-        fourthChoice: ["Good", true],
+        firstChoice: [
+          "Aesthetic",
+          "Aesthetic - a particular theory or conception of beauty or art",
+          true,
+        ],
+        secondChoice: [
+          "Ugly",
+          "Ugly - unpleasant or repulsive, especially in appearance.",
+          false,
+        ],
+        thirdChoice: [
+          "Funny",
+          "Funny - causing laughter or amusement; humorous.",
+          false,
+        ],
+        fourthChoice: ["Good", "Good - to be desired or approved of.", true],
       },
     },
     {
-      question: "What is the capital of France?",
+      question: "What is the Antonym for <u>happy</u>",
       answers: {
-        firstChoice: ["London", false],
-        secondChoice: ["Paris", true],
-        thirdChoice: ["Berlin", false],
-        fourthChoice: ["Madrid", false],
+        firstChoice: ["Sad", "Sad - feeling or showing sorrow; unhappy.", true],
+        secondChoice: [
+          "Excited",
+          "Excited - very enthusiastic and eager.",
+          false,
+        ],
+        thirdChoice: [
+          "Joyful",
+          "Joyful - feeling, expressing, or causing great pleasure and happiness.",
+          false,
+        ],
+        fourthChoice: ["Merry", "Merry - cheerful and lively.", false],
       },
     },
     {
-      question: "Who wrote Romeo and Juliet?",
+      question: "What is the Synonyms for <u>angry</u>",
       answers: {
-        firstChoice: ["William Shakespeare", true],
-        secondChoice: ["Jane Austen", false],
-        thirdChoice: ["Charles Dickens", false],
-        fourthChoice: ["Mark Twain", false],
+        firstChoice: ["Furious", "Furious - extremely angry.", true],
+        secondChoice: [
+          "Calm",
+          "Calm - not showing or feeling nervousness, anger, or other strong emotions.",
+          false,
+        ],
+        thirdChoice: [
+          "Peaceful",
+          "Peaceful - free from disturbance; tranquil.",
+          false,
+        ],
+        fourthChoice: [
+          "Content",
+          "Content - in a state of peaceful happiness.",
+          false,
+        ],
       },
     },
+    // Add more questions here
   ],
 };

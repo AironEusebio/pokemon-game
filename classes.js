@@ -7,6 +7,7 @@ class Sprite {
     sprites,
     animate = false,
     isEnemy = false,
+    name,
   }) {
     this.position = position;
     this.image = image;
@@ -21,6 +22,7 @@ class Sprite {
     this.opacity = 1;
     this.health = 100;
     this.isEnemy = isEnemy;
+    this.name = name;
   }
 
   draw() {
@@ -51,17 +53,21 @@ class Sprite {
     }
   }
 
-  attack({ attack, recepient }) {
-    // switch (attack.name) {
-    //   case "Tackle":
-    //     break;
-    // }
+  faint() {
+    gsap.to(this.position, {
+      y: this.position + 20,
+    });
+    gsap.to(this, {
+      opacity: 0,
+    });
+  }
 
+  attack({ attack, recepient }) {
     document.querySelector("#dialogueBox").style.display = "block";
 
     const tl = gsap.timeline();
 
-    this.health -= attack.damage;
+    recepient.health -= attack.damage;
 
     let movementDistance = 20;
     if (this.isEnemy) movementDistance = -20;
@@ -77,8 +83,9 @@ class Sprite {
         duration: 0.1,
         onComplete: () => {
           // Enemy gets hit
+          audio.tackleHit.play();
           gsap.to(healthBar, {
-            width: this.health + "%",
+            width: recepient.health + "%",
           });
           gsap.to(recepient.position, {
             x: recepient.position.x + 10,
@@ -110,7 +117,7 @@ class Boundary {
   }
 
   draw() {
-    c.fillStyle = "rgba(255, 0, 0, 0.2)";
+    c.fillStyle = "rgba(255, 0, 0, 0)";
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }

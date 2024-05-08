@@ -1,5 +1,6 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
+audio.Map.play();
 canvas.width = 1024;
 canvas.height = 576;
 
@@ -181,9 +182,9 @@ function animate() {
         // deactivate current animation loop
         window.cancelAnimationFrame(animationId);
 
-        // audio.Map.stop()
-        // audio.initBattle.play()
-        // audio.battle.play()
+        audio.Map.stop();
+        audio.initBattle.play();
+        audio.battle.play();
 
         battle.initiated = true;
         gsap.to("#overlappingDiv", {
@@ -197,7 +198,8 @@ function animate() {
               duration: 0.4,
               onComplete() {
                 // activate a new animation loop
-                // initBattle()
+                initBattle();
+                displayRandomQuestion();
                 animateBattle();
                 gsap.to("#overlappingDiv", {
                   opacity: 0,
@@ -316,93 +318,124 @@ function animate() {
   }
 }
 
-// animate();
+animate();
 
-const battleBackgroundImage = new Image();
-battleBackgroundImage.src = "./img/battleBackground.png";
-const battleBackground = new Sprite({
-  position: {
-    x: 0,
-    y: 0,
-  },
-  image: battleBackgroundImage,
-});
+let battleBackgroundImage;
+let battleBackground;
 
-const draggleImage = new Image();
-draggleImage.src = "./img/draggleSprite.png";
-const draggle = new Sprite({
-  position: {
-    x: 800,
-    y: 100,
-  },
-  image: draggleImage,
-  frames: {
-    max: 4,
-    hold: 30,
-  },
-  animate: true,
-  isEnemy: true,
-});
+let draggleImage;
+let draggle;
 
-const embyImage = new Image();
-embyImage.src = "./img/embySprite.png";
-const emby = new Sprite({
-  position: {
-    x: 280,
-    y: 325,
-  },
-  image: embyImage,
-  frames: {
-    max: 4,
-    hold: 30,
-  },
-  animate: true,
-});
+let embyImage;
+let emby;
+
+function initBattle() {
+  document.querySelector("#userInterface").style.display = "block";
+  document.querySelector("#dialogueBox").style.display = "none";
+  document.querySelector("#enemyHealthBar").style.width = "100%";
+  document.querySelector("#playerHealthBar").style.width = "100%";
+
+  battleBackgroundImage = new Image();
+  battleBackgroundImage.src = "./img/battleBackground.png";
+
+  battleBackground = new Sprite({
+    position: {
+      x: 0,
+      y: 0,
+    },
+    image: battleBackgroundImage,
+  });
+
+  draggleImage = new Image();
+  draggleImage.src = "./img/draggleSprite.png";
+
+  draggle = new Sprite({
+    position: {
+      x: 800,
+      y: 100,
+    },
+    image: draggleImage,
+    frames: {
+      max: 4,
+      hold: 30,
+    },
+    animate: true,
+    isEnemy: true,
+    name: "Draggle",
+  });
+
+  embyImage = new Image();
+  embyImage.src = "./img/embySprite.png";
+
+  emby = new Sprite({
+    position: {
+      x: 280,
+      y: 325,
+    },
+    image: embyImage,
+    frames: {
+      max: 4,
+      hold: 30,
+    },
+    animate: true,
+    name: "Emby",
+  });
+}
+
+// initBattle();
+
+let battleAnimationId;
 
 function animateBattle() {
-  window.requestAnimationFrame(animateBattle);
+  battleAnimationId = window.requestAnimationFrame(animateBattle);
   battleBackground.draw();
   draggle.draw();
   emby.draw();
 }
 
-animateBattle();
+// animateBattle();
 
 document.querySelector("#dialogueBox").addEventListener("click", () => {
   document.querySelector("#dialogueBox").style.display = "none";
 });
 
+function displayMeaning(meaning) {
+  const dialogueBox = document.getElementById("dialogueBox");
+
+  dialogueBox.textContent = "";
+  buttonContainer.innerHTML = "";
+  dialogueBox.innerHTML = meaning + "...";
+}
+
 function displayRandomQuestion() {
-  // Get a random question index
+  document.querySelector("#dialogueBox").style.display = "block";
   currentQuestionIndex = Math.floor(Math.random() * level.questions.length);
   const randomQuestion = level.questions[currentQuestionIndex];
 
-  // Get the question container
   const dialogueBox = document.getElementById("dialogueBox");
 
-  // Clear previous question and answer buttons
   dialogueBox.textContent = "";
   buttonContainer.innerHTML = "";
 
-  // Create a question element
-  dialogueBox.innerHTML = randomQuestion.question;
+  // Create and display the question
+  const questionElement = document.createElement("div");
+  questionElement.innerHTML = randomQuestion.question;
+  dialogueBox.appendChild(questionElement);
 
   // Iterate over the answer choices and create buttons
   Object.values(randomQuestion.answers).forEach((answer) => {
     const button = document.createElement("button");
     button.textContent = answer[0];
-    button.value = answer[1]; // Set the button value to true or false
+    button.value = answer[2];
     buttonContainer.appendChild(button);
 
-    // Add click event listener to each button
     button.addEventListener("click", () => {
       const selectedAttack = attacks[button.textContent];
-      if (answer[1]) {
-        // Check if the answer is true
+      if (answer[2]) {
         emby.attack({
           attack: {
             name: selectedAttack,
-            damage: 25,
+            damage: 50,
             type: "Normal",
           },
           recepient: draggle,
@@ -411,13 +444,62 @@ function displayRandomQuestion() {
         draggle.attack({
           attack: {
             name: selectedAttack,
-            damage: 25,
+            damage: 50,
             type: "Normal",
           },
           recepient: emby,
         });
       }
-      displayRandomQuestion(); // Display the next question
+      if (draggle.health <= 0) {
+        document.querySelector("#dialogueBox").innerHTML =
+          draggle.name + " fainted!";
+        setTimeout(() => {
+          draggle.faint();
+          audio.victory.play();
+          gsap.to("#overlappingDiv", {
+            opacity: 1,
+            onComplete: () => {
+              cancelAnimationFrame(battleAnimationId);
+              animate();
+              document.querySelector("#userInterface").style.display = "none";
+              gsap.to("#overlappingDiv", {
+                opacity: 0,
+              });
+              battle.initiated = false;
+              audio.battle.stop();
+              audio.Map.play();
+            },
+          });
+        }, 2000);
+        return;
+      } else if (emby.health <= 0) {
+        document.querySelector("#dialogueBox").innerHTML =
+          emby.name + " fainted!";
+        setTimeout(() => {
+          emby.faint();
+          gsap.to("#overlappingDiv", {
+            opacity: 1,
+            onComplete: () => {
+              cancelAnimationFrame(battleAnimationId);
+              animate();
+              document.querySelector("#userInterface").style.display = "none";
+              gsap.to("#overlappingDiv", {
+                opacity: 0,
+              });
+              battle.initiated = false;
+              audio.battle.stop();
+              audio.Map.play();
+            },
+          });
+        }, 2000);
+        return;
+      }
+
+      displayMeaning(answer[1]);
+
+      setTimeout(() => {
+        displayRandomQuestion();
+      }, 2000);
     });
   });
 }
@@ -486,5 +568,14 @@ window.addEventListener("keyup", (e) => {
     case "ArrowRight":
       keys.d.pressed = false;
       break;
+  }
+});
+
+let clicked = false;
+
+addEventListener("click", () => {
+  if (!clicked) {
+    audio.Map.play();
+    clicked = true;
   }
 });
