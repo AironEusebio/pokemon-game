@@ -28,6 +28,60 @@
       button:hover {
         background-color: #ccc;
       }
+
+      #questBoard div {
+        margin: 5px; /* Add some space between the two divs */
+        padding: 10px;
+        background-color: lightblue;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      #questBoard div:before {
+        content: "Quest"; /* Add the 'Quest' label */
+        position: absolute;
+        top: -20px; /* Position above the quest div */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%);
+        background-color: #ffcc00; /* Yellow background color for the label */
+        color: #333;
+        padding: 3px 10px;
+        border-radius: 5px;
+        border: 2px black solid;
+      }
+
+      #questBoard div:first-child {
+        background-color: #f44336; /* Red color for the first div */
+        color: white;
+      }
+
+      #questBoard div:last-child {
+        background-color: #2196f3; /* Blue color for the last div */
+        color: white;
+      }
+
+      #controller {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: none;
+      }
+
+      #controller button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        margin: 5px;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      #controller div {
+        margin-top: 10px;
+      }
     </style>
   </head>
   <body>
@@ -45,6 +99,67 @@
           pointer-events: none;
           z-index: 10;
         "></div>
+
+      <div
+        id="levelBoard"
+        style="
+          position: absolute;
+          width: fit-content;
+          border: 2px black solid;
+          top: 10px;
+          left: 10px;
+          padding: 5px;
+          background-color: white;
+          border-radius: 10px;
+        "></div>
+
+      <button
+        id="hamburger"
+        style="
+          position: absolute;
+          width: fit-content;
+          padding: 5px;
+          border: 2px black solid;
+          top: 10px;
+          right: 10px;
+          background-color: white;
+          border-radius: 10px;
+          justify-content: center;
+          display: flex;
+        ">
+        ☰
+      </button>
+
+      <div
+        id="questBoard"
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: fit-content;
+          display: flex;
+          justify-content: center;
+          border: 2px black solid;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: white;
+          flex-direction: column;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          display: none;
+        ">
+        <div>Reach Level 10 to Unlock the Upper Island</div>
+        <div>Reach Level 20 to Unlock the Lower Island</div>
+      </div>
+
+      <div id="controller">
+        <button id="up">↑</button><br />
+        <div>
+          <button id="left">←</button>
+          <button id="down">↓</button>
+          <button id="right">→</button>
+        </div>
+      </div>
 
       <canvas></canvas>
 

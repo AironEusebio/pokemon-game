@@ -7,9 +7,44 @@ canvas.height = 576;
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+const image = new Image();
+
+const foregroundImage = new Image();
+
+const playerDownImage = new Image();
+playerDownImage.src = "./img/playerDown.png";
+
+const playerUpImage = new Image();
+playerUpImage.src = "./img/playerUp.png";
+
+const playerLeftImage = new Image();
+playerLeftImage.src = "./img/playerLeft.png";
+
+const playerRightImage = new Image();
+playerRightImage.src = "./img/playerRight.png";
+
+let myLevel = 1;
+
 const collisionsMap = [];
-for (let i = 0; i < collosions.length; i += 70) {
-  collisionsMap.push(collosions.slice(i, 70 + i));
+
+if (myLevel >= 20) {
+  image.src = "./img/pokemonStyleGameMapTileSetLevel20.png";
+  foregroundImage.src = "./img/Foreground Objects Level 20.png";
+  for (let i = 0; i < collosionsLevel20.length; i += 70) {
+    collisionsMap.push(collosionsLevel20.slice(i, 70 + i));
+  }
+} else if (myLevel >= 10) {
+  image.src = "./img/pokemonStyleGameMapTileSetLevel10.png";
+  foregroundImage.src = "./img/Foreground Objects.png";
+  for (let i = 0; i < collosionsLevel10.length; i += 70) {
+    collisionsMap.push(collosionsLevel10.slice(i, 70 + i));
+  }
+} else {
+  image.src = "./img/pokemonStyleGameMapTileSetLevel1.png";
+  foregroundImage.src = "./img/Foreground Objects.png";
+  for (let i = 0; i < collosionsLevel1.length; i += 70) {
+    collisionsMap.push(collosionsLevel1.slice(i, 70 + i));
+  }
 }
 
 const battleZonesMap = [];
@@ -53,24 +88,6 @@ battleZonesMap.forEach((row, i) => {
       );
   });
 });
-
-const image = new Image();
-image.src = "./img/pokemonStyleGameMapTileSet.png";
-
-const foregroundImage = new Image();
-foregroundImage.src = "./img/Foreground Objects.png";
-
-const playerDownImage = new Image();
-playerDownImage.src = "./img/playerDown.png";
-
-const playerUpImage = new Image();
-playerUpImage.src = "./img/playerUp.png";
-
-const playerLeftImage = new Image();
-playerLeftImage.src = "./img/playerLeft.png";
-
-const playerRightImage = new Image();
-playerRightImage.src = "./img/playerRight.png";
 
 const player = new Sprite({
   position: {
@@ -145,6 +162,11 @@ function animate() {
     boundary.draw();
   });
 
+  document.getElementById("levelBoard").style.display = "block";
+  document.getElementById("levelBoard").innerHTML = "Level: " + myLevel;
+
+  document.getElementById("hamburger").style.display = "block";
+
   battleZones.forEach((battleZone) => {
     battleZone.draw();
   });
@@ -177,7 +199,7 @@ function animate() {
           rectangle2: battleZone,
         }) &&
         overlappingArea > (player.width * player.height) / 2 &&
-        Math.random() < 0.01
+        Math.random() < 0.1
       ) {
         // deactivate current animation loop
         window.cancelAnimationFrame(animationId);
@@ -201,6 +223,9 @@ function animate() {
                 initBattle();
                 displayRandomQuestion();
                 animateBattle();
+                document.getElementById("levelBoard").style.display = "none";
+                document.getElementById("hamburger").style.display = "none";
+                document.getElementById("questBoard").style.display = "none";
                 gsap.to("#overlappingDiv", {
                   opacity: 0,
                   duration: 0.4,
@@ -407,10 +432,27 @@ function displayMeaning(meaning) {
   dialogueBox.innerHTML = meaning + "...";
 }
 
+let randomQuestion;
+
 function displayRandomQuestion() {
   document.querySelector("#dialogueBox").style.display = "block";
-  currentQuestionIndex = Math.floor(Math.random() * level.questions.length);
-  const randomQuestion = level.questions[currentQuestionIndex];
+
+  if (myLevel >= 20) {
+    currentQuestionIndex = Math.floor(
+      Math.random() * level.level3.questions.length
+    );
+    randomQuestion = level.level3.questions[currentQuestionIndex];
+  } else if (myLevel >= 10) {
+    currentQuestionIndex = Math.floor(
+      Math.random() * level.level2.questions.length
+    );
+    randomQuestion = level.level2.questions[currentQuestionIndex];
+  } else {
+    currentQuestionIndex = Math.floor(
+      Math.random() * level.level1.questions.length
+    );
+    randomQuestion = level.level1.questions[currentQuestionIndex];
+  }
 
   const dialogueBox = document.getElementById("dialogueBox");
 
@@ -468,6 +510,15 @@ function displayRandomQuestion() {
               battle.initiated = false;
               audio.battle.stop();
               audio.Map.play();
+              gsap.to("#levelBoard", {
+                opacity: 0,
+                onComplete: () => {
+                  myLevel += 1;
+                  gsap.to("#levelBoard", {
+                    opacity: 1,
+                  });
+                },
+              });
             },
           });
         }, 2000);
@@ -489,6 +540,15 @@ function displayRandomQuestion() {
               battle.initiated = false;
               audio.battle.stop();
               audio.Map.play();
+              gsap.to("#levelBoard", {
+                opacity: 0,
+                onComplete: () => {
+                  if (myLevel > 1) myLevel -= 1;
+                  gsap.to("#levelBoard", {
+                    opacity: 1,
+                  });
+                },
+              });
             },
           });
         }, 2000);
@@ -505,6 +565,42 @@ function displayRandomQuestion() {
 }
 
 displayRandomQuestion();
+
+document.getElementById("up").addEventListener("touchstart", () => {
+  keys.w.pressed = true;
+  lastKey = "w";
+});
+document.getElementById("up").addEventListener("touchend", () => {
+  keys.w.pressed = false;
+  lastKey = "w";
+});
+
+document.getElementById("left").addEventListener("touchstart", () => {
+  keys.a.pressed = true;
+  lastKey = "a";
+});
+document.getElementById("left").addEventListener("touchend", () => {
+  keys.a.pressed = false;
+  lastKey = "a";
+});
+
+document.getElementById("down").addEventListener("touchstart", () => {
+  keys.s.pressed = true;
+  lastKey = "s";
+});
+document.getElementById("down").addEventListener("touchend", () => {
+  keys.s.pressed = false;
+  lastKey = "s";
+});
+
+document.getElementById("right").addEventListener("touchstart", () => {
+  keys.d.pressed = true;
+  lastKey = "d";
+});
+document.getElementById("right").addEventListener("touchend", () => {
+  keys.d.pressed = false;
+  lastKey = "d";
+});
 
 window.addEventListener("keydown", (e) => {
   switch (e.key) {
@@ -579,3 +675,43 @@ addEventListener("click", () => {
     clicked = true;
   }
 });
+
+let hamburgerClicked = false;
+
+document.getElementById("hamburger").addEventListener("click", () => {
+  if (!hamburgerClicked) {
+    gsap.to("#questBoard", {
+      opacity: 0,
+      onComplete: () => {
+        gsap.to("#questBoard", {
+          opacity: 1,
+        });
+        document.getElementById("questBoard").style.display = "block";
+      },
+    });
+
+    hamburgerClicked = true;
+  } else {
+    gsap.to("#questBoard", {
+      opacity: 1,
+      onComplete: () => {
+        gsap.to("#questBoard", {
+          opacity: 0,
+        });
+        document.getElementById("questBoard").style.display = "none";
+      },
+    });
+
+    hamburgerClicked = false;
+  }
+});
+
+// const controller = document.getElementById("controller");
+// console.log(window.innerHeight);
+// console.log(window.innerWidth);
+// console.log(navigator.userAgent.indexOf("IEMobile"));
+// console.log(typeof window.orientation);
+// if (navigator.userAgent.indexOf("IEMobile")) {
+//   console.log("ajsa");
+//   controller.style.display = "block";
+// }
