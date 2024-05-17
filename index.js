@@ -27,24 +27,10 @@ let myLevel = 1;
 
 const collisionsMap = [];
 
-if (myLevel >= 20) {
-  image.src = "./img/pokemonStyleGameMapTileSetLevel20.png";
-  foregroundImage.src = "./img/Foreground Objects Level 20.png";
-  for (let i = 0; i < collosionsLevel20.length; i += 70) {
-    collisionsMap.push(collosionsLevel20.slice(i, 70 + i));
-  }
-} else if (myLevel >= 10) {
-  image.src = "./img/pokemonStyleGameMapTileSetLevel10.png";
-  foregroundImage.src = "./img/Foreground Objects.png";
-  for (let i = 0; i < collosionsLevel10.length; i += 70) {
-    collisionsMap.push(collosionsLevel10.slice(i, 70 + i));
-  }
-} else {
-  image.src = "./img/pokemonStyleGameMapTileSetLevel1.png";
-  foregroundImage.src = "./img/Foreground Objects.png";
-  for (let i = 0; i < collosionsLevel1.length; i += 70) {
-    collisionsMap.push(collosionsLevel1.slice(i, 70 + i));
-  }
+image.src = "./img/pokemonStyleGameMapTileSetLevel20.png";
+foregroundImage.src = "./img/Foreground Objects Level 20.png";
+for (let i = 0; i < collosionsLevel20.length; i += 70) {
+  collisionsMap.push(collosionsLevel20.slice(i, 70 + i));
 }
 
 const battleZonesMap = [];
@@ -424,12 +410,20 @@ document.querySelector("#dialogueBox").addEventListener("click", () => {
   document.querySelector("#dialogueBox").style.display = "none";
 });
 
+document.querySelector("#answerBox").addEventListener("click", () => {
+  document.querySelector("#answerBox").style.display = "none";
+});
+
 function displayMeaning(meaning) {
-  const dialogueBox = document.getElementById("dialogueBox");
+  const dialogueBox = document.getElementById("answerBox");
+  document.querySelector("#answerBox").style.display = "block";
+  // document.querySelector("#dialogueBox").style.display = "none";
 
   dialogueBox.textContent = "";
   buttonContainer.innerHTML = "";
-  dialogueBox.innerHTML = meaning + "...";
+  dialogueBox.innerHTML =
+    meaning +
+    "... <br><br> <span id='continueMessage' style='position: absolute; bottom: 10px; right: 10px; font-size: 0.6em; color: gray;'>Click anywhere to continue</span>";
 }
 
 let randomQuestion;
@@ -437,12 +431,7 @@ let randomQuestion;
 function displayRandomQuestion() {
   document.querySelector("#dialogueBox").style.display = "block";
 
-  if (myLevel >= 20) {
-    currentQuestionIndex = Math.floor(
-      Math.random() * level.level3.questions.length
-    );
-    randomQuestion = level.level3.questions[currentQuestionIndex];
-  } else if (myLevel >= 10) {
+  if (myLevel >= 15) {
     currentQuestionIndex = Math.floor(
       Math.random() * level.level2.questions.length
     );
@@ -461,7 +450,9 @@ function displayRandomQuestion() {
 
   // Create and display the question
   const questionElement = document.createElement("div");
-  questionElement.innerHTML = randomQuestion.question;
+  questionElement.innerHTML =
+    randomQuestion.question +
+    "<br><br> <span id='continueMessage' style='position: absolute; bottom: 10px; right: 10px; font-size: 0.6em; color: gray;'>Click anywhere to continue</span>";
   dialogueBox.appendChild(questionElement);
 
   // Iterate over the answer choices and create buttons
@@ -557,85 +548,54 @@ function displayRandomQuestion() {
 
       displayMeaning(answer[1]);
 
-      setTimeout(() => {
-        displayRandomQuestion();
-      }, 2000);
+      displayRandomQuestion();
     });
   });
 }
 
-displayRandomQuestion();
+// displayRandomQuestion();
 
-document.getElementById("up").addEventListener("touchstart", () => {
-  keys.w.pressed = true;
-  lastKey = "w";
-});
-document.getElementById("up").addEventListener("touchend", () => {
-  keys.w.pressed = false;
-  lastKey = "w";
-});
-
-document.getElementById("left").addEventListener("touchstart", () => {
-  keys.a.pressed = true;
-  lastKey = "a";
-});
-document.getElementById("left").addEventListener("touchend", () => {
-  keys.a.pressed = false;
-  lastKey = "a";
-});
-
-document.getElementById("down").addEventListener("touchstart", () => {
-  keys.s.pressed = true;
-  lastKey = "s";
-});
-document.getElementById("down").addEventListener("touchend", () => {
-  keys.s.pressed = false;
-  lastKey = "s";
-});
-
-document.getElementById("right").addEventListener("touchstart", () => {
-  keys.d.pressed = true;
-  lastKey = "d";
-});
-document.getElementById("right").addEventListener("touchend", () => {
-  keys.d.pressed = false;
-  lastKey = "d";
-});
+let hamburgerClicked = false;
 
 window.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    case "w":
-      keys.w.pressed = true;
-      lastKey = "w";
-      break;
-    case "a":
-      keys.a.pressed = true;
-      lastKey = "a";
-      break;
-    case "s":
-      keys.s.pressed = true;
-      lastKey = "s";
-      break;
-    case "d":
-      keys.d.pressed = true;
-      lastKey = "d";
-      break;
-    case "ArrowUp":
-      keys.w.pressed = true;
-      lastKey = "w";
-      break;
-    case "ArrowLeft":
-      keys.a.pressed = true;
-      lastKey = "a";
-      break;
-    case "ArrowDown":
-      keys.s.pressed = true;
-      lastKey = "s";
-      break;
-    case "ArrowRight":
-      keys.d.pressed = true;
-      lastKey = "d";
-      break;
+  var modal = document.getElementById("myModal");
+  if (hamburgerClicked) {
+    return;
+  } else {
+    switch (e.key) {
+      case "w":
+        keys.w.pressed = true;
+        lastKey = "w";
+        break;
+      case "a":
+        keys.a.pressed = true;
+        lastKey = "a";
+        break;
+      case "s":
+        keys.s.pressed = true;
+        lastKey = "s";
+        break;
+      case "d":
+        keys.d.pressed = true;
+        lastKey = "d";
+        break;
+      case "ArrowUp":
+        keys.w.pressed = true;
+        lastKey = "w";
+        break;
+      case "ArrowLeft":
+        keys.a.pressed = true;
+        lastKey = "a";
+        break;
+      case "ArrowDown":
+        keys.s.pressed = true;
+        lastKey = "s";
+        break;
+      case "ArrowRight":
+        keys.d.pressed = true;
+        lastKey = "d";
+        break;
+    }
   }
 });
 
@@ -676,8 +636,6 @@ addEventListener("click", () => {
   }
 });
 
-let hamburgerClicked = false;
-
 document.getElementById("hamburger").addEventListener("click", () => {
   if (!hamburgerClicked) {
     gsap.to("#questBoard", {
@@ -686,6 +644,7 @@ document.getElementById("hamburger").addEventListener("click", () => {
         gsap.to("#questBoard", {
           opacity: 1,
         });
+        player.animate = false;
         document.getElementById("questBoard").style.display = "block";
       },
     });
@@ -698,6 +657,7 @@ document.getElementById("hamburger").addEventListener("click", () => {
         gsap.to("#questBoard", {
           opacity: 0,
         });
+        player.animate = true;
         document.getElementById("questBoard").style.display = "none";
       },
     });
@@ -706,12 +666,111 @@ document.getElementById("hamburger").addEventListener("click", () => {
   }
 });
 
-// const controller = document.getElementById("controller");
-// console.log(window.innerHeight);
-// console.log(window.innerWidth);
-// console.log(navigator.userAgent.indexOf("IEMobile"));
-// console.log(typeof window.orientation);
-// if (navigator.userAgent.indexOf("IEMobile")) {
-//   console.log("ajsa");
-//   controller.style.display = "block";
-// }
+// Download pdf
+document.getElementById("downloadBtn").addEventListener("click", function () {
+  const playerName = document.getElementById("playerName").value;
+
+  if (myLevel < 30) {
+    showModal("Reach Level 30 First!");
+    document.getElementById("playerName").value = "";
+    return;
+  }
+
+  if (playerName.trim() === "") {
+    showModal("Please enter your name.");
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+
+  if (jsPDF) {
+    const doc = new jsPDF();
+
+    // Base64 encoded image data
+    const imgData = "./img/CERTIFICATE OF COMPLETION.png"; // Replace with actual base64 string
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const img = new Image();
+    img.src = imgData;
+    img.onload = function () {
+      const imgAspectRatio = img.width / img.height;
+      const pageAspectRatio = pageWidth / pageHeight;
+
+      let imgWidth, imgHeight;
+      if (imgAspectRatio > pageAspectRatio) {
+        imgWidth = pageWidth;
+        imgHeight = pageWidth / imgAspectRatio;
+      } else {
+        imgHeight = pageHeight;
+        imgWidth = pageHeight * imgAspectRatio;
+      }
+
+      const imgX = (pageWidth - imgWidth) / 2;
+      const imgY = (pageHeight - imgHeight) / 2;
+
+      doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
+
+      // Player's name
+      doc.setFont("courier", "bold");
+
+      doc.setFontSize(30);
+      doc.setTextColor(0, 0, 0);
+      doc.text(playerName, 105, 130, { align: "center" });
+
+      doc.setFontSize(30);
+      doc.setTextColor(255, 255, 255);
+      doc.text(playerName, 105.3, 130.3, { align: "center" });
+
+      // Date of completion
+      const completionDate = new Date().toLocaleDateString();
+      doc.setFont("courier", "bold");
+
+      doc.setFontSize(20);
+      doc.setTextColor(0, 0, 0);
+      doc.text(`Date: ${completionDate}`, 105, 205, { align: "center" });
+
+      doc.setFontSize(20);
+      doc.setTextColor(255, 255, 255);
+      doc.text(`Date: ${completionDate}`, 105.3, 205.3, { align: "center" });
+
+      // Save the PDF
+      doc.save("game-completion-certificate.pdf");
+    };
+
+    img.onerror = function () {
+      console.error("Image failed to load.");
+    };
+
+    document.getElementById("playerName").value = "";
+  } else {
+    console.error("jsPDF is not loaded correctly.");
+  }
+});
+
+function showModal(message) {
+  var modal = document.getElementById("myModal");
+  var modalMessage = document.getElementById("modalMessage");
+  modalMessage.textContent = message;
+  modal.style.display = "flex";
+}
+
+// Function to close the custom modal
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+var closeBtn = document.getElementsByClassName("close")[0];
+closeBtn.onclick = function () {
+  closeModal();
+};
+
+// Close the modal when the user clicks anywhere outside of the modal
+window.onclick = function (event) {
+  var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    closeModal();
+  }
+};
