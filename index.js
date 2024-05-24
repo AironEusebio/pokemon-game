@@ -429,17 +429,43 @@ function displayMeaning(meaning) {
 let randomQuestion;
 let currentQuestionIndex = 0;
 
+let usedLevel1QuestionIndices = new Set();
+let usedLevel2QuestionIndices = new Set();
+
+function getRandomQuestionIndex(max, usedIndicesSet) {
+  let randomIndex;
+
+  // If the Set contains all possible indices, clear it to start fresh
+  if (usedIndicesSet.size >= max) {
+    usedIndicesSet.clear();
+  }
+
+  // Generate a new random index until it's not in the Set
+  do {
+    randomIndex = Math.floor(Math.random() * max);
+  } while (usedIndicesSet.has(randomIndex));
+
+  // Add the new random index to the Set
+  usedIndicesSet.add(randomIndex);
+
+  return randomIndex;
+}
+
 function displayRandomQuestion() {
   document.querySelector("#dialogueBox").style.display = "block";
 
   if (myLevel >= 15) {
-    currentQuestionIndex = Math.floor(
-      Math.random() * level.level2.questions.length
+    const maxLevel2Questions = level.level2.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel2Questions,
+      usedLevel2QuestionIndices
     );
     randomQuestion = level.level2.questions[currentQuestionIndex];
   } else {
-    currentQuestionIndex = Math.floor(
-      Math.random() * level.level1.questions.length
+    const maxLevel1Questions = level.level1.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
     );
     randomQuestion = level.level1.questions[currentQuestionIndex];
   }

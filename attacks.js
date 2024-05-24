@@ -1078,47 +1078,235 @@ const level = {
   level2: {
     questions: [
       {
-        question: "What is the Synonym for <u>brave</u>?",
+        question:
+          "The <u>erudite</u> professor spoke on the history of philosophy.",
         answers: {
           firstChoice: [
-            "Courageous",
-            "Courageous - not deterred by danger or pain; brave.",
+            "Arrogant",
+            "Arrogant - Having or showing an exaggerated sense of one's own importance.",
+            false,
+          ],
+          secondChoice: ["Brief", "Brief - Lasting for a short time.", false],
+          thirdChoice: [
+            "Literate",
+            "Literate - Having or showing great knowledge or learning.",
             true,
           ],
-          secondChoice: [
-            "Fearful",
-            "Fearful - feeling afraid; showing fear or anxiety.",
+          fourthChoice: [
+            "Energetic",
+            "Energetic – Full of energy and enthusiasm.",
             false,
           ],
-          thirdChoice: [
-            "Stupid",
-            "Stupid - lacking intelligence or common sense.",
-            false,
-          ],
-          fourthChoice: ["Cowardly", "Cowardly - lacking courage.", false],
         },
       },
       {
-        question: "What is the Synonym for <u>hardworking</u>?",
+        question: "The fireflies created an <u>ephemeral</u> display of light.",
         answers: {
           firstChoice: [
-            "Diligent",
-            "Diligent - having or showing care and conscientiousness in one's work or duties.",
+            "Fleeting",
+            "Fleeting - Lasting for a very short time.",
             true,
           ],
           secondChoice: [
-            "Lazy",
-            "Lazy - unwilling to work or use energy.",
+            "Bright",
+            "Bright - Shining with a strong, clear light.",
             false,
           ],
           thirdChoice: [
-            "Clever",
-            "Clever - quick to understand, learn, and devise or apply ideas; intelligent.",
+            "Continuous",
+            "Continuous - Happening or continuing without interruption.",
             false,
           ],
           fourthChoice: [
-            "Sloppy",
-            "Sloppy - careless and unsystematic; excessively casual.",
+            "Dazzling",
+            "Dazzling - So bright as to be difficult to look at.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "The <u>gregarious</u> parrot loved to chat with visitors.",
+        answers: {
+          firstChoice: ["Quiet", "Quiet - Making little or no noise.", false],
+          secondChoice: [
+            "Outgoing",
+            "Outgoing - Sociable and enjoying the company of others.",
+            true,
+          ],
+          thirdChoice: [
+            "Independent",
+            "Independent - Liking to be alone.",
+            false,
+          ],
+          fourthChoice: [
+            "Reserved",
+            " Reserved - Unwilling to talk openly or freely.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "The <u>impecunious</u> artist struggled to afford art supplies.",
+        answers: {
+          firstChoice: [
+            "Creative",
+            "Creative - Able to create new and original ideas.",
+            false,
+          ],
+          secondChoice: [
+            "Wealthy",
+            "Wealthy - Having a large amount of money or possessions.",
+            false,
+          ],
+          thirdChoice: [
+            "Talented",
+            "Talented - Having a natural ability to be good at something.",
+            false,
+          ],
+          fourthChoice: ["Poor", "Poor - Having little or no money.", true],
+        },
+      },
+      {
+        question:
+          "The <u>malevolent</u> villain plotted to take over the world.",
+        answers: {
+          firstChoice: [
+            "Humorous",
+            "Humorous - Causing amusement or laughter.",
+            false,
+          ],
+          secondChoice: [
+            "Misunderstood",
+            "Misunderstood - Not understood correctly.",
+            false,
+          ],
+          thirdChoice: ["Evil", "Evil - Wishing to do bad to others.", true],
+          fourthChoice: ["Benevolent", "Benevolent – Kind and helpful.", false],
+        },
+      },
+      {
+        question:
+          "The old photographs evoked a <u>nostalgic</u> feeling for his childhood.",
+        answers: {
+          firstChoice: [
+            "Longing",
+            "Longing - Feeling a sentimental longing for the past.",
+            true,
+          ],
+          secondChoice: [
+            "Happy",
+            "Happy - Feeling or showing pleasure or satisfaction.",
+            false,
+          ],
+          thirdChoice: [
+            "Angry",
+            "Angry - Feeling or showing strong annoyance, displeasure, or hostility.",
+            false,
+          ],
+          fourthChoice: [
+            "Content",
+            "Content - Feeling satisfied with one's life or situation.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "The politician <u>obfuscated</u> the issue with complex jargon.",
+        answers: {
+          firstChoice: [
+            "Confuse",
+            "Confuse - To make something difficult to understand.",
+            true,
+          ],
+          secondChoice: [
+            "Clarified",
+            "Clarified - Made something easier to understand.",
+            false,
+          ],
+          thirdChoice: [
+            "Explained",
+            "Explained - Made something clear and easy to understand.",
+            false,
+          ],
+          fourthChoice: [
+            "Simplified",
+            "Simplified - Made something less complex.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question:
+          "By <u>serendipity</u>, she found the lost necklace while searching for something else.",
+        answers: {
+          firstChoice: [
+            "Skill",
+            "Skill - The ability to do something well.",
+            false,
+          ],
+          secondChoice: [
+            "Effort",
+            "Effort - Putting physical or mental energy into a task.",
+            false,
+          ],
+          thirdChoice: [
+            "Planning",
+            "Planning - Making a decision or arrangement about something that is going to happen in the future.",
+            false,
+          ],
+          fourthChoice: [
+            "Luck",
+            "Luck - The occurrence and development of events by chance in a happy or beneficial way.",
+            true,
+          ],
+        },
+      },
+      {
+        question: "The <u>stoic</u> soldier faced danger without fear.",
+        answers: {
+          firstChoice: [
+            "Panicked",
+            "Panicked - Suddenly feeling or showing great fear and anxiety.",
+            false,
+          ],
+          secondChoice: [
+            "Terrified",
+            "Terrified - Feeling or showing extreme fear.",
+            false,
+          ],
+          thirdChoice: ["Impassive", "Impassive - Calm and unemotional.", true],
+          fourthChoice: [
+            "Jittery",
+            "Jittery - Feeling nervous or restless.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "The street performers provided <u>transient</u> entertainment for the passersby.",
+        answers: {
+          firstChoice: [
+            "Captivating",
+            "Captivating - Holding someone's attention completely.",
+            false,
+          ],
+          secondChoice: [
+            "Temporary",
+            "Temporary - Lasting for a short time.",
+            true,
+          ],
+          thirdChoice: [
+            "Entertainment",
+            "Entertainment – holds interest, gives pleasure and delight.",
+            false,
+          ],
+          fourthChoice: [
+            "Permanent",
+            "Permanent – stable, without significant change.",
             false,
           ],
         },
