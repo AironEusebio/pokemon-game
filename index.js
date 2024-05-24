@@ -185,7 +185,7 @@ function animate() {
           rectangle2: battleZone,
         }) &&
         overlappingArea > (player.width * player.height) / 2 &&
-        Math.random() < 0.1
+        Math.random() < 0.02
       ) {
         // deactivate current animation loop
         window.cancelAnimationFrame(animationId);
@@ -427,6 +427,7 @@ function displayMeaning(meaning) {
 }
 
 let randomQuestion;
+let currentQuestionIndex = 0;
 
 function displayRandomQuestion() {
   document.querySelector("#dialogueBox").style.display = "block";

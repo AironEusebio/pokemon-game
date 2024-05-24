@@ -975,95 +975,103 @@ const level = {
       },
       {
         question: "What is the antonym of <u>Victory</u>?",
-        firstChoice: [
-          "Triumph",
-          "Triumph – a great success or achievement.",
-          false,
-        ],
-        secondChoice: [
-          "Defeat",
-          "Defeat – losing in a contest or struggle.",
-          true,
-        ],
-        thirdChoice: [
-          "Conquest",
-          "Conquest – the act of conquering someone or something.",
-          false,
-        ],
-        fourthChoice: [
-          "Progress",
-          "Progress – movement towards a better state or condition.",
-          false,
-        ],
+        answers: {
+          firstChoice: [
+            "Triumph",
+            "Triumph – a great success or achievement.",
+            false,
+          ],
+          secondChoice: [
+            "Defeat",
+            "Defeat – losing in a contest or struggle.",
+            true,
+          ],
+          thirdChoice: [
+            "Conquest",
+            "Conquest – the act of conquering someone or something.",
+            false,
+          ],
+          fourthChoice: [
+            "Progress",
+            "Progress – movement towards a better state or condition.",
+            false,
+          ],
+        },
       },
       {
         question: "What is the antonym of <u>Justice</u>?",
-        firstChoice: [
-          "Fairness",
-          "Fairness – treating all people equally.",
-          false,
-        ],
-        secondChoice: [
-          "Equality",
-          "Equality – the state of all people being equal in social status.",
-          false,
-        ],
-        thirdChoice: [
-          "Injustice",
-          "Injustice – lack of fairness or justice.",
-          true,
-        ],
-        fourthChoice: [
-          "Mercy",
-          "Mercy – compassionate forgiveness of someone’s wrongdoing.",
-          false,
-        ],
+        answers: {
+          firstChoice: [
+            "Fairness",
+            "Fairness – treating all people equally.",
+            false,
+          ],
+          secondChoice: [
+            "Equality",
+            "Equality – the state of all people being equal in social status.",
+            false,
+          ],
+          thirdChoice: [
+            "Injustice",
+            "Injustice – lack of fairness or justice.",
+            true,
+          ],
+          fourthChoice: [
+            "Mercy",
+            "Mercy – compassionate forgiveness of someone’s wrongdoing.",
+            false,
+          ],
+        },
       },
       {
         question: "What is the antonym of <u>Unity</u>?",
-        firstChoice: [
-          "Harmony",
-          "Harmony – a state of agreement or peaceful relations.",
-          false,
-        ],
-        secondChoice: [
-          "Cohesion",
-          "Cohesion – the act or process of uniting or being united.",
-          false,
-        ],
-        thirdChoice: [
-          "Fragmentation",
-          "Fragmentation – the act of breaking or dividing something into smaller pieces.",
-          true,
-        ],
-        fourthChoice: [
-          "Solidarity",
-          "Solidarity – unity or agreement of feeling or action, especially among individuals with a common interest.",
-          false,
-        ],
+        answers: {
+          firstChoice: [
+            "Harmony",
+            "Harmony – a state of agreement or peaceful relations.",
+            false,
+          ],
+          secondChoice: [
+            "Cohesion",
+            "Cohesion – the act or process of uniting or being united.",
+            false,
+          ],
+          thirdChoice: [
+            "Fragmentation",
+            "Fragmentation – the act of breaking or dividing something into smaller pieces.",
+            true,
+          ],
+          fourthChoice: [
+            "Solidarity",
+            "Solidarity – unity or agreement of feeling or action, especially among individuals with a common interest.",
+            false,
+          ],
+        },
       },
       {
         question: "What is the antonym of <u>Healthy</u>?",
-        firstChoice: [
-          "Fitness",
-          "Fitness – the condition of being physically fit and healthy.",
-          false,
-        ],
-        secondChoice: [
-          "Wellness",
-          "Wellness – the state of being in good health, especially as a result of deliberate effort.",
-          false,
-        ],
-        thirdChoice: [
-          "Debility",
-          "Debility – weakness or lack of strength.",
-          true,
-        ],
-        fourthChoice: [
-          "Vitality",
-          "Vitality – physical strength and energy.",
-          false,
-        ],
+        answers: {
+          firstChoice: [
+            "Fitness",
+            "Fitness – the condition of being physically fit and healthy.",
+            false,
+          ],
+          secondChoice: [
+            "Wellness",
+            "Wellness – the state of being in good health, especially as a result of deliberate effort.",
+            false,
+          ],
+          thirdChoice: [
+            "Debility",
+            "Debility – weakness or lack of strength.",
+            true,
+          ],
+          fourthChoice: [
+            "Vitality",
+            "Vitality – physical strength and energy.",
+            false,
+          ],
+        },
       },
     ],
   },
@@ -1111,52 +1119,6 @@ const level = {
           fourthChoice: [
             "Sloppy",
             "Sloppy - careless and unsystematic; excessively casual.",
-            false,
-          ],
-        },
-      },
-    ],
-  },
-  level3: {
-    questions: [
-      {
-        question: "What is the Synonym for <u>large</u>?",
-        answers: {
-          firstChoice: ["Huge", "Huge - extremely large; enormous.", true],
-          secondChoice: ["Tiny", "Tiny - very small.", false],
-          thirdChoice: [
-            "Quick",
-            "Quick - moving fast or doing something in a short time.",
-            false,
-          ],
-          fourthChoice: [
-            "Slow",
-            "Slow - moving or operating at a low speed.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the Synonym for <u>intelligent</u>?",
-        answers: {
-          firstChoice: [
-            "Smart",
-            "Smart - having or showing a quick-witted intelligence.",
-            true,
-          ],
-          secondChoice: [
-            "Dull",
-            "Dull - lacking interest or excitement.",
-            false,
-          ],
-          thirdChoice: [
-            "Kind",
-            "Kind - having or showing a friendly, generous, and considerate nature.",
-            false,
-          ],
-          fourthChoice: [
-            "Cruel",
-            "Cruel - wilfully causing pain or suffering to others, or feeling no concern about it.",
             false,
           ],
         },
