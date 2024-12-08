@@ -150,6 +150,7 @@ function animate() {
 
   document.getElementById("levelBoard").style.display = "block";
   document.getElementById("levelBoard").innerHTML = "Level: " + myLevel;
+  document.getElementById("controls").style.display = "flex";
 
   document.getElementById("hamburger").style.display = "block";
 
@@ -212,6 +213,7 @@ function animate() {
                 document.getElementById("levelBoard").style.display = "none";
                 document.getElementById("hamburger").style.display = "none";
                 document.getElementById("questBoard").style.display = "none";
+                document.getElementById("controls").style.display = "none";
                 gsap.to("#overlappingDiv", {
                   opacity: 0,
                   duration: 0.4,
@@ -583,6 +585,62 @@ function displayRandomQuestion() {
 // displayRandomQuestion();
 
 let hamburgerClicked = false;
+
+const movableElement = document.getElementById("movableElement");
+
+function moveElement() {
+  const step = 10;
+
+  if (keys.w.pressed) position.top -= step; // Move Up
+  if (keys.a.pressed) position.left -= step; // Move Left
+  if (keys.s.pressed) position.top += step; // Move Down
+  if (keys.d.pressed) position.left += step; // Move Right
+
+  // Apply the new position to the element
+  movableElement.style.top = `${position.top}px`;
+  movableElement.style.left = `${position.left}px`;
+}
+
+document.getElementById("moveUp").addEventListener("click", () => {
+  keys.w.pressed = true;
+  lastKey = "w";
+  moveElement();
+});
+
+document.getElementById("moveLeft").addEventListener("click", () => {
+  keys.a.pressed = true;
+  lastKey = "a";
+  moveElement();
+});
+
+document.getElementById("moveDown").addEventListener("click", () => {
+  keys.s.pressed = true;
+  lastKey = "s";
+  moveElement();
+});
+
+document.getElementById("moveRight").addEventListener("click", () => {
+  keys.d.pressed = true;
+  lastKey = "d";
+  moveElement();
+});
+
+// For simulating the keyup behavior when button is released
+document.getElementById("moveUp").addEventListener("mouseup", () => {
+  keys.w.pressed = false;
+});
+
+document.getElementById("moveLeft").addEventListener("mouseup", () => {
+  keys.a.pressed = false;
+});
+
+document.getElementById("moveDown").addEventListener("mouseup", () => {
+  keys.s.pressed = false;
+});
+
+document.getElementById("moveRight").addEventListener("mouseup", () => {
+  keys.d.pressed = false;
+});
 
 window.addEventListener("keydown", (e) => {
   var modal = document.getElementById("myModal");
