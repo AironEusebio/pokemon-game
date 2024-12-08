@@ -714,7 +714,7 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
     const doc = new jsPDF();
 
     // Base64 encoded image data
-    const imgData = "./img/CERTIFICATE OF COMPLETION.png"; // Replace with actual base64 string
+    const imgData = "public/img/CERTIFICATE OF COMPLETION.png"; // Replace with actual base64 string
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
