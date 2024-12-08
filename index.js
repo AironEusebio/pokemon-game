@@ -23,7 +23,7 @@ playerLeftImage.src = "./img/playerLeft.png";
 const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
 
-let myLevel = 1;
+let myLevel = 50;
 
 const collisionsMap = [];
 
