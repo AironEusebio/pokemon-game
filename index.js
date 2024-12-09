@@ -23,14 +23,14 @@ playerLeftImage.src = "./img/playerLeft.png";
 const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
 
-let myLevel = 50;
+let myLevel = 1;
 
 const collisionsMap = [];
 
-image.src = "./img/pokemonStyleGameMapTileSetLevel20.png";
-foregroundImage.src = "./img/Foreground Objects Level 20.png";
-for (let i = 0; i < collosionsLevel20.length; i += 70) {
-  collisionsMap.push(collosionsLevel20.slice(i, 70 + i));
+image.src = "./img/pokemonStyleGameMapTileSetLevel1.png";
+foregroundImage.src = "./img/Foreground Objects Level 1.png";
+for (let i = 0; i < collosionsLevel1.length; i += 70) {
+  collisionsMap.push(collosionsLevel1.slice(i, 70 + i));
 }
 
 const battleZonesMap = [];
