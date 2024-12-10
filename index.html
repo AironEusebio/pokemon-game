@@ -291,8 +291,8 @@
         style="
           position: absolute;
           width: fit-content;
-          height: 35px;
-          line-height: 35px; /* Vertically center the text */
+          height: auto;
+          line-height: 35px;
           border: 2px black solid;
           top: 10px;
           left: 10px;
@@ -300,6 +300,7 @@
           background-color: white;
           border-radius: 10px;
           display: flex;
+          flex-direction: column; /* Stack children vertically */
           align-items: center;
           justify-content: center;
           text-align: center;

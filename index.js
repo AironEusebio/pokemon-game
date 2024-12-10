@@ -24,6 +24,8 @@ const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
 
 let myLevel = 1;
+let myExp = 0; // Current EXP
+let maxExp = 100; // EXP needed for next level
 
 const collisionsMap = [];
 
@@ -148,8 +150,58 @@ function animate() {
     boundary.draw();
   });
 
-  document.getElementById("levelBoard").style.display = "block";
-  document.getElementById("levelBoard").innerHTML = "Level: " + myLevel;
+  // Assuming myLevel, myExp, and maxExp variables
+
+  // Reference the levelBoard
+  const levelBoard = document.getElementById("levelBoard");
+  levelBoard.style.display = "block"; // Ensure it's visible
+
+  // Create level display
+  const levelDisplay = document.createElement("div");
+  levelDisplay.innerText = `Level: ${myLevel}`;
+  levelDisplay.style.marginBottom = "5px"; // Add space below the level text
+
+  // Create EXP container
+  const expContainer = document.createElement("div");
+  expContainer.style.position = "relative";
+  expContainer.style.width = "150px";
+  expContainer.style.height = "20px";
+  expContainer.style.backgroundColor = "#ccc";
+  expContainer.style.border = "2px solid black";
+  expContainer.style.borderRadius = "5px";
+  expContainer.style.overflow = "hidden"; // Prevent overflow of the progress bar
+
+  // Create EXP progress bar
+  const expBar = document.createElement("div");
+  expBar.style.width = `${(myExp / maxExp) * 100}%`; // Calculate fill percentage
+  expBar.style.height = "100%";
+  expBar.style.backgroundColor = "green";
+  expBar.style.position = "relative";
+  expBar.style.transition = "width 0.3s ease"; // Smooth animation
+
+  // Create gem icon inside EXP bar
+  const gemIcon = document.createElement("img");
+  gemIcon.src =
+    "https://img.icons8.com/?size=100&id=Tam1qz0xqNlN&format=png&color=000000"; // Replace with your gem image URL
+  gemIcon.alt = "Gem Icon";
+  gemIcon.style.position = "absolute";
+  gemIcon.style.top = "50%";
+  gemIcon.style.right = "0"; // Position the gem at the end of the filled section
+  gemIcon.style.transform = "translate(50%, -50%)"; // Center it vertically
+  gemIcon.style.width = "20px"; // Adjust size
+  gemIcon.style.height = "20px";
+
+  // Add the gem icon to the EXP progress bar
+  expBar.appendChild(gemIcon);
+
+  // Add EXP bar to the container
+  expContainer.appendChild(expBar);
+
+  // Clear and update the levelBoard content
+  levelBoard.innerHTML = ""; // Clear existing content
+  levelBoard.appendChild(levelDisplay);
+  levelBoard.appendChild(expContainer);
+
   document.getElementById("controls").style.display = "flex";
 
   document.getElementById("hamburger").style.display = "block";
@@ -533,7 +585,11 @@ function displayRandomQuestion() {
               gsap.to("#levelBoard", {
                 opacity: 0,
                 onComplete: () => {
-                  myLevel += 1;
+                  myExp += 25;
+                  if (myExp >= maxExp) {
+                    myExp = 0;
+                    myLevel += 1;
+                  }
                   gsap.to("#levelBoard", {
                     opacity: 1,
                   });
@@ -563,7 +619,6 @@ function displayRandomQuestion() {
               gsap.to("#levelBoard", {
                 opacity: 0,
                 onComplete: () => {
-                  if (myLevel > 1) myLevel -= 1;
                   gsap.to("#levelBoard", {
                     opacity: 1,
                   });
