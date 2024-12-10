@@ -12,14 +12,985 @@ const attacks = {
 };
 
 const level = {
-  level1: {
+  watermelon: {
     questions: [
       {
-        question: "What is the Synonym for <u>intelligent</u>?",
+        question: "Easily spread from one person to another.",
+        answers: {
+          firstChoice: [
+            "Contagious",
+            "Contagious- Easily spread from one person to another.",
+            true,
+          ],
+          secondChoice: [
+            "Timid",
+            "Timid - Showing a lack of courage or confidence; easily frightened.",
+            false,
+          ],
+          thirdChoice: [
+            "Fearful",
+            "Fearful - Feeling afraid; showing fear or anxiety.",
+            false,
+          ],
+          fourthChoice: ["Scared", "Scared - Afraid; frightened.", false],
+        },
+      },
+
+      {
+        question:
+          "To recognize or understand the difference between two things.",
+        answers: {
+          firstChoice: [
+            "Ugly",
+            "Ugly - Unpleasant or repulsive, especially in appearance.",
+            false,
+          ],
+          secondChoice: [
+            "Distinguish",
+            "Distinguish- to recognize or understand the difference between two things.",
+            true,
+          ],
+          thirdChoice: [
+            "Homely",
+            "Homely - Unattractive in appearance.",
+            false,
+          ],
+          fourthChoice: [
+            "Hideous",
+            "Hideous - Ugly or disgusting to look at.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "To come out or start to develop",
+        answers: {
+          firstChoice: [
+            "Emerge",
+            "Emerge- to come out or start to develop.",
+            true,
+          ],
+          secondChoice: [
+            "Grumpy",
+            "Grumpy - bad-tempered and sulky; easily annoyed.",
+            false,
+          ],
+          thirdChoice: [
+            "Cheerful",
+            "Cheerful - noticeably happy and optimistic.",
+            false,
+          ],
+          fourthChoice: [
+            "Sad",
+            "Sad - feeling or showing sorrow; unhappy.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question: "To take part in",
+        answers: {
+          firstChoice: [
+            "Courageous",
+            "Courageous - not deterred by danger or pain; brave.",
+            false,
+          ],
+          secondChoice: [
+            "Fearful",
+            "Fearful - feeling afraid; showing fear or anxiety.",
+            false,
+          ],
+          thirdChoice: ["Engage in", "Engage in- to take part in.", true],
+          fourthChoice: [
+            "Timid",
+            "Timid - showing a lack of courage or confidence; easily frightened.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question: "To change slowly over time.",
+        answers: {
+          firstChoice: [
+            "Gorgeous",
+            "Gorgeous - beautiful; very attractive.",
+            false,
+          ],
+          secondChoice: [
+            "Ugly",
+            "Ugly - unpleasant or repulsive, especially in appearance.",
+            false,
+          ],
+          thirdChoice: [
+            "Stunning",
+            "Stunning - extremely impressive or attractive.",
+            false,
+          ],
+          fourthChoice: ["Evolve", "Evolve- to change slowly over time.", true],
+        },
+      },
+
+      {
+        question: "Describing places with well-developed manufacturing.",
+        answers: {
+          firstChoice: [
+            "Industrialized",
+            "Industrialized- describing places with well-developed manufacturing.",
+            true,
+          ],
+          secondChoice: [
+            "Agitated",
+            "Agitated - feeling or appearing troubled or nervous.",
+            false,
+          ],
+          thirdChoice: [
+            "Relaxed",
+            "Relaxed - free from tension and anxiety; at ease.",
+            false,
+          ],
+          fourthChoice: [
+            "Hysterical",
+            "Hysterical - deriving from or affected by uncontrolled extreme emotion.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question: "Natural from birth.",
+        answers: {
+          firstChoice: [
+            "Self-assured",
+            "Self-assured - confident in one's own abilities or character.",
+            false,
+          ],
+          secondChoice: ["Innate", "Innate- natural from birth.", true],
+          thirdChoice: ["Assured", "Assured - guaranteed; sure.", false],
+          fourthChoice: [
+            "Insecure",
+            "Insecure - not confident or assured; uncertain and anxious.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question: "The beginning or cause of something.",
         answers: {
           firstChoice: [
             "Smart",
             "Smart - having or showing a quick-witted intelligence.",
+            false,
+          ],
+          secondChoice: [
+            "Clever",
+            "Clever - Quick to understand, learn, and devise or apply ideas.",
+            false,
+          ],
+          thirdChoice: [
+            "Origin",
+            "Origin- the beginning or cause of something.",
+            true,
+          ],
+          fourthChoice: [
+            "Sharp",
+            "Sharp - Quick to notice, understand, or react.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question: "Mainly",
+        answers: {
+          firstChoice: [
+            "Serene",
+            "Serene - calm, peaceful, and untroubled; tranquil.",
+            false,
+          ],
+          secondChoice: [
+            "Tranquil",
+            "Tranquil - free from disturbance; calm.",
+            false,
+          ],
+          thirdChoice: [
+            "Peaceful",
+            "Peaceful - Free from disturbance; tranquil.",
+            false,
+          ],
+          fourthChoice: ["Primarily", "Primarily - Mainly..", true],
+        },
+      },
+
+      {
+        question: "Showing the possibility that something bad will happen.",
+        answers: {
+          firstChoice: [
+            "Threatening",
+            "Threatening - showing the possibility that something bad will happen.",
+            true,
+          ],
+          secondChoice: [
+            "Content",
+            "Content - In a state of peaceful happiness.",
+            false,
+          ],
+          thirdChoice: [
+            "Cheerful",
+            "Cheerful - noticeably happy and optimistic.",
+            false,
+          ],
+          fourthChoice: [
+            "Delighted",
+            "Delighted - Feeling or showing great pleasure.",
+            false,
+          ],
+        },
+      },
+    ],
+  },
+  kiwi: {
+    questions: [
+      {
+        question: "Extremely charming or appealing",
+        answers: {
+          firstChoice: [
+            "Courageous",
+            "Courageous - not deterred by danger or pain; brave.",
+            false,
+          ],
+          secondChoice: ["Fearless", "Fearless - Lacking fear.", false],
+          thirdChoice: [
+            "Adorable",
+            "Adorable- extremely charming or appealing.",
+            true,
+          ],
+          fourthChoice: ["Gallant", "Gallant - Brave; heroic.", false],
+        },
+      },
+
+      {
+        question: "Open to view; visible.",
+        answers: {
+          firstChoice: [
+            "Gorgeous",
+            "Gorgeous - beautiful; very attractive.",
+            false,
+          ],
+          secondChoice: ["Apparent", "Apparent- open to view; visible.", true],
+          thirdChoice: [
+            "Exquisite",
+            "Exquisite - Extremely beautiful and, typically, delicate.",
+            false,
+          ],
+          fourthChoice: [
+            "Lovely",
+            "Lovely - very beautiful or attractive.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "To accept something to be true without question or proof.",
+        answers: {
+          firstChoice: [
+            "Calmness",
+            "Calmness - A state of peace of mind, free from agitation or excitement.",
+            false,
+          ],
+          secondChoice: [
+            "Annoyance",
+            "Annoyance - A feeling of mild displeasure or irritation.",
+            false,
+          ],
+          thirdChoice: [
+            "Assume",
+            "Assume- to accept something to be true without question or proof.",
+            true,
+          ],
+          fourthChoice: [
+            "Acceptance",
+            "Acceptance - The action of consenting to receive or undertake something.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Relationship between people or groups based on shared feelings, interests, or experiences.",
+        answers: {
+          firstChoice: [
+            "Enablement",
+            "Enablement - The action of making it possible for someone to do something.",
+            false,
+          ],
+          secondChoice: [
+            "Limitation",
+            "Limitation - An act or process of limiting something.",
+            false,
+          ],
+          thirdChoice: [
+            "Submission",
+            "Submission - The action of complying with someone or something.",
+            false,
+          ],
+          fourthChoice: [
+            "Bond",
+            "Bond- relationship between people or groups based on shared feelings, interests, or experiences.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "A a person who habitually seeks to harm or intimidate those whom they perceive as vulnerable.",
+        answers: {
+          firstChoice: [
+            "Vulnerability",
+            "Vulnerability - The state of being susceptible to attack or damage.",
+            false,
+          ],
+          secondChoice: [
+            "Bully",
+            "Bully- a person who habitually seeks to harm or intimidate those whom they perceive as vulnerable.",
+            true,
+          ],
+          thirdChoice: [
+            "Fragility",
+            "Fragility - The quality of being easily broken or damaged.",
+            false,
+          ],
+          fourthChoice: [
+            "Fear",
+            "Fear - An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "An event or a group of events occurring as part of a sequence; an incident or period. ",
+        answers: {
+          firstChoice: [
+            "Genuineness",
+            "Genuineness - The quality of being genuine; free from pretense or falseness.",
+            false,
+          ],
+          secondChoice: [
+            "Deceit",
+            "Deceit - The action of deceiving someone; trickery.",
+            false,
+          ],
+          thirdChoice: [
+            "Vanity",
+            "Episodes- an event or a group of events occurring as part of a sequence; an incident or period.",
+            true,
+          ],
+          fourthChoice: [
+            "Superficiality",
+            "Superficiality - Concern with the outward appearance or character of something rather than its deeper nature.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "Causing laughter and amusement; comic.",
+        answers: {
+          firstChoice: [
+            "Selfishness",
+            "Selfishness - Excessive regard for one's own interests.",
+            false,
+          ],
+          secondChoice: [
+            "Selflessness",
+            "Selflessness - The quality of being selfless; regarding the needs or wants of others before one's own.",
+            false,
+          ],
+          thirdChoice: [
+            "Indifference",
+            "Indifference - A lack of interest or concern.",
+            false,
+          ],
+          fourthChoice: [
+            "Humorous",
+            "Humorous- causing laughter and amusement; comic.",
+            true,
+          ],
+        },
+      },
+      {
+        question: "In a pure manner.",
+        answers: {
+          firstChoice: ["Purely", "Purely- in a pure manner.", false],
+          secondChoice: [
+            "Boredom",
+            "Boredom – a lack of interest or excitement.",
+            true,
+          ],
+          thirdChoice: [
+            "Amusement",
+            "Amusement – light-hearted entertainment or enjoyment.",
+            false,
+          ],
+          fourthChoice: [
+            "Pain",
+            "Pain – physical suffering or discomfort.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Make fun of or attempt to provoke (a person or animal) in a playful way.",
+        answers: {
+          firstChoice: [
+            "Triumph",
+            "Triumph – a great success or achievement.",
+            false,
+          ],
+          secondChoice: [
+            "Teased",
+            "Teased- make fun of or attempt to provoke (a person or animal) in a playful way.",
+            true,
+          ],
+          thirdChoice: [
+            "Conquest",
+            "Conquest – the act of conquering someone or something.",
+            false,
+          ],
+          fourthChoice: [
+            "Progress",
+            "Progress – movement towards a better state or condition.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "Prove to be the case.",
+        answers: {
+          firstChoice: [
+            "Fairness",
+            "Fairness – treating all people equally.",
+            false,
+          ],
+          secondChoice: [
+            "Equality",
+            "Equality – the state of all people being equal in social status.",
+            false,
+          ],
+          thirdChoice: ["Turn out", "Turn out- prove to be the case.", true],
+          fourthChoice: [
+            "Mercy",
+            "Mercy – compassionate forgiveness of someone’s wrongdoing.",
+            false,
+          ],
+        },
+      },
+    ],
+  },
+  strawberry: {
+    questions: [
+      {
+        question:
+          "Ready or likely to attack or confront; characterized by or resulting from aggression.",
+        answers: {
+          firstChoice: [
+            "Aggressive",
+            "Aggressive- ready or likely to attack or confront; characterized by or resulting from aggression.",
+            true,
+          ],
+          secondChoice: [
+            "Cohesion",
+            "Cohesion – the act or process of uniting or being united.",
+            false,
+          ],
+          thirdChoice: [
+            "Fragmentation",
+            "Fragmentation – the act of breaking or dividing something into smaller pieces.",
+            false,
+          ],
+          fourthChoice: [
+            "Solidarity",
+            "Solidarity – unity or agreement of feeling or action, especially among individuals with a common interest.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "A fact or condition connected with or relevant to an event or action.",
+        answers: {
+          firstChoice: [
+            "Fitness",
+            "Fitness – the condition of being physically fit and healthy.",
+            false,
+          ],
+          secondChoice: [
+            "Wellness",
+            "Wellness – the state of being in good health, especially as a result of deliberate effort.",
+            false,
+          ],
+          thirdChoice: [
+            "Circumstances",
+            "Circumstances- a fact or condition connected with or relevant to an event or action.",
+            true,
+          ],
+          fourthChoice: [
+            "Vitality",
+            "Vitality – physical strength and energy.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Unit of heredity information that occupies a fixed position.",
+        answers: {
+          firstChoice: [
+            "Arrogant",
+            "Arrogant - Having or showing an exaggerated sense of one's own importance.",
+            false,
+          ],
+          secondChoice: ["Brief", "Brief - Lasting for a short time.", false],
+          thirdChoice: [
+            "Genes",
+            "Genes- unit of heredity information that occupies a fixed position.",
+            true,
+          ],
+          fourthChoice: [
+            "Energetic",
+            "Energetic – Full of energy and enthusiasm.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "An animal that naturally preys on others.",
+        answers: {
+          firstChoice: [
+            "Fleeting",
+            "Fleeting - Lasting for a very short time.",
+            false,
+          ],
+          secondChoice: [
+            "Bright",
+            "Bright - Shining with a strong, clear light.",
+            false,
+          ],
+          thirdChoice: [
+            "Continuous",
+            "Continuous - Happening or continuing without interruption.",
+            false,
+          ],
+          fourthChoice: [
+            "Predators",
+            "Predators- an animal that naturally preys on others.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "Made, done, or happening without method or conscious decision.",
+        answers: {
+          firstChoice: [
+            "Random",
+            "Random- made, done, or happening without method or conscious decision.",
+            true,
+          ],
+          secondChoice: [
+            "Outgoing",
+            "Outgoing - Sociable and enjoying the company of others.",
+            false,
+          ],
+          thirdChoice: [
+            "Independent",
+            "Independent - Liking to be alone.",
+            false,
+          ],
+          fourthChoice: [
+            "Reserved",
+            " Reserved - Unwilling to talk openly or freely.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Appropriate or compatible with a particular person, task, occasion, etc.",
+        answers: {
+          firstChoice: [
+            "Creative",
+            "Creative - Able to create new and original ideas.",
+            false,
+          ],
+          secondChoice: [
+            "Wealthy",
+            "Wealthy - Having a large amount of money or possessions.",
+            false,
+          ],
+          thirdChoice: [
+            "Talented",
+            "Talented - Having a natural ability to be good at something.",
+            false,
+          ],
+          fourthChoice: [
+            "Suited to",
+            "Suited to- appropriate or compatible with a particular person, task, occasion, etc.",
+            true,
+          ],
+        },
+      },
+      {
+        question: "The outside part or uppermost layer of something.",
+        answers: {
+          firstChoice: [
+            "Surface",
+            "Surface- the outside part or uppermost layer of something.",
+            true,
+          ],
+          secondChoice: [
+            "Misunderstood",
+            "Misunderstood - Not understood correctly.",
+            false,
+          ],
+          thirdChoice: ["Evil", "Evil - Wishing to do bad to others.", true],
+          fourthChoice: ["Benevolent", "Benevolent- Kind and helpful.", false],
+        },
+      },
+      {
+        question: "An area of land under the jurisdiction of a ruler or state.",
+        answers: {
+          firstChoice: [
+            "Longing",
+            "Longing - Feeling a sentimental longing for the past.",
+            false,
+          ],
+          secondChoice: [
+            "Happy",
+            "Happy - Feeling or showing pleasure or satisfaction.",
+            false,
+          ],
+          thirdChoice: [
+            "Angry",
+            "Angry - Feeling or showing strong annoyance, displeasure, or hostility.",
+            false,
+          ],
+          fourthChoice: [
+            "Territory",
+            "Territory- an area of land under the jurisdiction of a ruler or state.",
+            true,
+          ],
+        },
+      },
+      {
+        question: "To grow, develop, or be successful.",
+        answers: {
+          firstChoice: [
+            "Confuse",
+            "Confuse - To make something difficult to understand.",
+            false,
+          ],
+          secondChoice: [
+            "Clarified",
+            "Clarified - Made something easier to understand.",
+            false,
+          ],
+          thirdChoice: [
+            "Explained",
+            "Explained - Made something clear and easy to understand.",
+            false,
+          ],
+          fourthChoice: [
+            "Thrive",
+            "Thrive- to grow, develop, or be successful.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "A distinguishing quality or characteristics, especially one belonging to a person.",
+        answers: {
+          firstChoice: [
+            "Skill",
+            "Skill - The ability to do something well.",
+            false,
+          ],
+          secondChoice: [
+            "Effort",
+            "Effort - Putting physical or mental energy into a task.",
+            false,
+          ],
+          thirdChoice: [
+            "Planning",
+            "Planning - Making a decision or arrangement about something that is going to happen in the future.",
+            false,
+          ],
+          fourthChoice: [
+            "Traits",
+            "Traits- a distinguishing quality or characteristics, especially one belonging to a person.",
+            true,
+          ],
+        },
+      },
+    ],
+  },
+  pineapple: {
+    questions: [
+      {
+        question: "Determine the amount or number of something.",
+        answers: {
+          firstChoice: [
+            "Calculate",
+            "Calculate- determine the amount or number of something.",
+            true,
+          ],
+          secondChoice: [
+            "Terrified",
+            "Terrified - Feeling or showing extreme fear.",
+            false,
+          ],
+          thirdChoice: ["Impassive", "Impassive - Calm and unemotional.", true],
+          fourthChoice: [
+            "Jittery",
+            "Jittery - Feeling nervous or restless.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Make something impure by exposure to or addition of a poisonous or polluting substance.",
+        answers: {
+          firstChoice: [
+            "Captivating",
+            "Captivating - Holding someone's attention completely.",
+            false,
+          ],
+          secondChoice: [
+            "Contaminate",
+            "Contaminate- Make something impure by exposure to or addition of a poisonous or polluting substance.",
+            true,
+          ],
+          thirdChoice: [
+            "Entertainment",
+            "Entertainment – holds interest, gives pleasure and delight.",
+            false,
+          ],
+          fourthChoice: [
+            "Permanent",
+            "Permanent – stable, without significant change.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "A person who expresses an unfavorable opinion of something.",
+        answers: {
+          firstChoice: [
+            "Gorgeous",
+            "Gorgeous - beautiful; very attractive.",
+            false,
+          ],
+          secondChoice: [
+            "Critic",
+            "Critic- a person who expresses an unfavorable opinion of something.",
+            true,
+          ],
+          thirdChoice: [
+            "Stunning",
+            "Stunning - extremely impressive or attractive.",
+            false,
+          ],
+          fourthChoice: [
+            "Evolve",
+            "Evolve- to change slowly over time.",
+            false,
+          ],
+        },
+      },
+      {
+        question: "The process or period of gathering in crops.",
+        answers: {
+          firstChoice: [
+            "Industrialized",
+            "Industrialized- describing places with well-developed manufacturing.",
+            false,
+          ],
+          secondChoice: [
+            "Agitated",
+            "Agitated - feeling or appearing troubled or nervous.",
+            false,
+          ],
+          thirdChoice: [
+            "Relaxed",
+            "Relaxed - free from tension and anxiety; at ease.",
+            false,
+          ],
+          fourthChoice: [
+            "Harvest",
+            "Harvest- the process or period of gathering in crops.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "Bring goods or services into a country from abroad for sale.",
+        answers: {
+          firstChoice: [
+            "Self-assured",
+            "Self-assured - confident in one's own abilities or character.",
+            false,
+          ],
+          secondChoice: ["Innate", "Innate- natural from birth.", false],
+          thirdChoice: ["Assured", "Assured - guaranteed; sure.", false],
+          fourthChoice: [
+            "Import",
+            "Import- bring goods or services into a country from abroad for sale.",
+            true,
+          ],
+        },
+      },
+      {
+        question: "Not adapted for use or action; not sensible or realistic.",
+        answers: {
+          firstChoice: [
+            "Impractical",
+            "Impractical- not adapted for use or action; not sensible or realistic.",
+            true,
+          ],
+          secondChoice: [
+            "Timid",
+            "Timid - Showing a lack of courage or confidence; easily frightened.",
+            false,
+          ],
+          thirdChoice: [
+            "Fearful",
+            "Fearful - Feeling afraid; showing fear or anxiety.",
+            false,
+          ],
+          fourthChoice: ["Scared", "Scared - Afraid; frightened.", false],
+        },
+      },
+      {
+        question: "Combine one thing with another to form a whole.",
+        answers: {
+          firstChoice: [
+            "Ugly",
+            "Ugly - Unpleasant or repulsive, especially in appearance.",
+            false,
+          ],
+          secondChoice: [
+            "Integrate",
+            "Integrate- combine one thing with another to form a whole.",
+            true,
+          ],
+          thirdChoice: [
+            "Homely",
+            "Homely - Unattractive in appearance.",
+            false,
+          ],
+          fourthChoice: [
+            "Hideous",
+            "Hideous - Ugly or disgusting to look at.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Having or showing the capacity to develop into something in the future.",
+        answers: {
+          firstChoice: [
+            "Emerge",
+            "Emerge- to come out or start to develop.",
+            false,
+          ],
+          secondChoice: [
+            "Grumpy",
+            "Grumpy - bad-tempered and sulky; easily annoyed.",
+            false,
+          ],
+          thirdChoice: [
+            "Potential",
+            "Potential- having or showing the capacity to develop into something in the future.",
+            true,
+          ],
+          fourthChoice: [
+            "Sad",
+            "Sad - feeling or showing sorrow; unhappy.",
+            false,
+          ],
+        },
+      },
+
+      {
+        question:
+          "At right angles to a horizontal plane; in a direction, or having an alignment, such that the top is directly above the bottom.",
+        answers: {
+          firstChoice: [
+            "Courageous",
+            "Courageous - not deterred by danger or pain; brave.",
+            false,
+          ],
+          secondChoice: [
+            "Fearful",
+            "Fearful - feeling afraid; showing fear or anxiety.",
+            false,
+          ],
+          thirdChoice: [
+            "Vertical",
+            "Vertical- at right angles to a horizontal plane; in a direction, or having an alignment, such that the top is directly above the bottom.",
+            true,
+          ],
+          fourthChoice: [
+            "Timid",
+            "Timid - showing a lack of courage or confidence; easily frightened.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Produce or provide (a natural, agricultural, or industrial product).",
+        answers: {
+          firstChoice: [
+            "Gorgeous",
+            "Gorgeous - beautiful; very attractive.",
+            false,
+          ],
+          secondChoice: [
+            "Ugly",
+            "Ugly - unpleasant or repulsive, especially in appearance.",
+            false,
+          ],
+          thirdChoice: [
+            "Stunning",
+            "Stunning - extremely impressive or attractive.",
+            false,
+          ],
+          fourthChoice: [
+            "Yield",
+            "Yield- produce or provide (a natural, agricultural, or industrial product)",
+            true,
+          ],
+        },
+      },
+    ],
+  },
+  banana: {
+    questions: [
+      {
+        question:
+          "The explorer’s blog gave a frightening <u>________</u> of the trip she took.?",
+        answers: {
+          firstChoice: [
+            "Account",
+            "Account- a report or description of an event or experience.",
             true,
           ],
           secondChoice: [
@@ -40,17 +1011,18 @@ const level = {
         },
       },
       {
-        question: "What is the Antonym for <u>abundant</u>?",
+        question:
+          "The hikers had waited for months and were <u>________</u> to start the climb.?",
         answers: {
           firstChoice: [
             "Scarce",
             "Scarce - Existing in large quantities vs. existing only in small amounts.",
-            true,
+            false,
           ],
           secondChoice: [
-            "Serendipity",
-            "Serendipity - The occurrence and development of events by chance in a happy or beneficial way.",
-            false,
+            "Eager",
+            "Eager- strongly wanted to do or have something.",
+            true,
           ],
           thirdChoice: [
             "Ephemeral",
@@ -65,12 +1037,13 @@ const level = {
         },
       },
       {
-        question: "What is the Antonym for <u>ancient</u>?",
+        question:
+          "This city needs to invest more in their <u>_______</u> to handle all the tourists?",
         answers: {
           firstChoice: [
             "Modern",
             "Modern: Belonging to the very distant past vs. belonging to the present time.",
-            true,
+            false,
           ],
           secondChoice: [
             "Incandescent",
@@ -78,9 +1051,9 @@ const level = {
             false,
           ],
           thirdChoice: [
-            "Melancholy",
-            "Melancholy - A feeling of pensive sadness, typically with no obvious cause.",
-            false,
+            "Infrastructure",
+            "Infrastructure- the basic physical and organizational structures and facilities (e.g. buildings, roads, power supplies) ",
+            true,
           ],
           fourthChoice: [
             "Clandestine",
@@ -90,12 +1063,13 @@ const level = {
         },
       },
       {
-        question: "What is the Antonym for <u>conceal</u>?",
+        question:
+          "Young people are usually more willing to take advice from their <u>________</u>?",
         answers: {
           firstChoice: [
-            "Reveal",
-            "Reveal -  to make something known that was previously secret or unknown.",
-            true,
+            "Voracious",
+            "Voracious - Wanting or devouring great quantities of food; having a very eager approach to an activity.",
+            false,
           ],
           secondChoice: [
             "Melancholy",
@@ -104,18 +1078,19 @@ const level = {
           ],
           thirdChoice: ["Brisk", "Brisk - Quick and active; lively.", false],
           fourthChoice: [
-            "Voracious",
-            "Voracious - Wanting or devouring great quantities of food; having a very eager approach to an activity.",
-            false,
+            "Peers",
+            "Peers - people who are the same age as you.",
+            true,
           ],
         },
       },
       {
-        question: "What is the Antonym for <u>innocent</u>?",
+        question:
+          "The tourism office sends the email message to <u>_______</u> visitors around the world.?",
         answers: {
           firstChoice: [
-            "Guilty",
-            "Guilty - Not responsible for or directly involved in an event vs. responsible for a crime or wrongdoing.",
+            "Potential",
+            "Guilty - Potential- having qualities or abilities that may be developed and lead to future success or usefulness.",
             true,
           ],
           secondChoice: [
@@ -136,17 +1111,18 @@ const level = {
         },
       },
       {
-        question: "What is the Antonym for <u>knowledgeable</u>?",
+        question:
+          "A closer look <u>______</u> that the photo had been edited to make the town look prettier.",
         answers: {
           firstChoice: [
-            "Ignorant",
-            "Ignorant - Having or showing knowledge or awareness vs. lacking knowledge or awareness.",
-            true,
+            "Revealed",
+            "Revealed- make previously unknown or secret information known to others.",
+            false,
           ],
           secondChoice: [
             "Radiant",
             "Radiant - Sending out light; shining or glowing brightly.",
-            false,
+            true,
           ],
           thirdChoice: [
             "Tranquil",
@@ -161,12 +1137,13 @@ const level = {
         },
       },
       {
-        question: "What is the Synonym for <u>ecstatic</u>?",
+        question:
+          "The hotel manager offered a <u>______</u> apology for all the problems and gave them a large discount on their bill.",
         answers: {
           firstChoice: [
             "Euphoric",
             "Euphoric - feeling or expressing overwhelming happiness or joyful excitement",
-            true,
+            false,
           ],
           secondChoice: [
             "Nostalgic",
@@ -174,9 +1151,9 @@ const level = {
             false,
           ],
           thirdChoice: [
-            "Gregarious",
-            "Gregarious - Fond of company; sociable.",
-            false,
+            "Sincere",
+            "Sincere- free from pretence or deceit; proceeding from genuine feelings.",
+            true,
           ],
           fourthChoice: [
             "Resilient",
@@ -186,9 +1163,10 @@ const level = {
         },
       },
       {
-        question: "What is the Synonym for <u>enormous</u>?",
+        question:
+          "City leaders are happy about the <u>_______</u> increase in tourists over the last 10 years.",
         answers: {
-          firstChoice: ["Immense", "Immense - extremely large or huge", true],
+          firstChoice: ["Immense", "Immense - extremely large or huge", false],
           secondChoice: [
             "Vibrant",
             "Vibrant - Full of energy and life.",
@@ -200,19 +1178,20 @@ const level = {
             false,
           ],
           fourthChoice: [
-            "Spontaneous",
-            "Spontaneous - Performed or occurring as a result of a sudden impulse or inclination and without premeditation or external stimulus.",
-            false,
+            "Steady",
+            "Steady- firmly fixed, supported, or balanced; not shaking or moving. ",
+            true,
           ],
         },
       },
       {
-        question: "What is the Synonym for <u>sluggish</u>?",
+        question:
+          "The photos of the animals that live around the coral reef were <u>_______</u> and quite colorful.",
         answers: {
           firstChoice: [
             "Lethargic",
             "Lethargic: slow-moving or lacking in energy",
-            true,
+            false,
           ],
           secondChoice: [
             "Adventurous",
@@ -225,18 +1204,19 @@ const level = {
             false,
           ],
           fourthChoice: [
-            "Exuberant",
-            "Exuberant - Filled with or characterized by a lively energy and excitement.",
-            false,
+            "Stunning",
+            "Stunning- extremely impressive or attractive. ",
+            true,
           ],
         },
       },
       {
-        question: "What is the Synonym for <u>diminutive</u>?",
+        question:
+          "This city is definitely <u>______</u> a visit by anyone interested in architecture.",
         answers: {
           firstChoice: [
-            "Petite",
-            "Petite: extremely or unusually small.",
+            "Worthy of",
+            "Worthy of- having or showing the qualities that deserve the specified action or regard.",
             true,
           ],
           secondChoice: [
@@ -256,18 +1236,23 @@ const level = {
           ],
         },
       },
+    ],
+  },
+  apple: {
+    questions: [
       {
-        question: "What is the Synonym for <u>lofty</u>?",
+        question:
+          "Two monkeys were fighting in a tree, and I <u>_____</u> the whole thing on video.",
         answers: {
           firstChoice: [
             "Towering",
             "Towering - impressively high or tall",
-            true,
+            false,
           ],
           secondChoice: [
             "Amiable",
-            "Amiable - Having or displaying a friendly and pleasant manner.",
-            false,
+            "Captured- take into one’s possession or control by force.",
+            true,
           ],
           thirdChoice: [
             "Inquisitive",
@@ -307,12 +1292,13 @@ const level = {
         },
       },
       {
-        question: "What is the Synonym for <u>fragile</u>?",
+        question:
+          "The movie was very violent, which many people in the audience found <u>________</u>.",
         answers: {
           firstChoice: [
             "Delicate",
             "Delicate - Easily broken or damaged.",
-            true,
+            false,
           ],
           secondChoice: [
             "Warm",
@@ -320,9 +1306,9 @@ const level = {
             false,
           ],
           thirdChoice: [
-            "Sturdy",
-            "Sturdy - Strongly and solidly built.",
-            false,
+            "Distressing",
+            "Distressing- causing anxiety, sorrow, or pain; upsetting.",
+            true,
           ],
           fourthChoice: [
             "Barren",
@@ -332,7 +1318,8 @@ const level = {
         },
       },
       {
-        question: "What is the Synonym for <u>joyful</u>?",
+        question:
+          "We can feel <u>________</u> when we compare our lives of people in social media.",
         answers: {
           firstChoice: [
             "Eloquent",
@@ -350,18 +1337,19 @@ const level = {
             false,
           ],
           fourthChoice: [
-            "Elated",
-            "Elated - Feeling, expressing, or causing great pleasure and happiness.",
+            "Inferior",
+            "Inferior- lower in rank, status, or quality.",
             true,
           ],
         },
       },
       {
-        question: "What is the Antonym for <u>fast</u>?",
+        question:
+          "Today, it’s possible to <u>_______ </u>by teaching people how to cook online.",
         answers: {
           firstChoice: [
-            "Slow",
-            "Slow - moving or operating at a low speed.",
+            "Make a living",
+            "Make a living- to earn enough money in order to support oneself financially.",
             true,
           ],
           secondChoice: [
@@ -383,11 +1371,11 @@ const level = {
       },
 
       {
-        question: "What is the Antonym for <u>big</u>?",
+        question: "Sunlight can’t easily <u>_________</u> thick gray clouds.",
         answers: {
           firstChoice: [
-            "Small",
-            "Small - of a size that is less than normal or usual.",
+            "Penetrate",
+            "Penetrate- go into or through something, especially with force or effort.",
             true,
           ],
           secondChoice: [
@@ -405,17 +1393,18 @@ const level = {
       },
 
       {
-        question: "What is the Antonym for <u>fast</u>?",
+        question:
+          "In bad weather, hiking on the mountain trails is <u>_________</u> It’s too dangerous.",
         answers: {
           firstChoice: [
             "Slow",
             "Slow - moving or operating at a low speed.",
-            true,
+            false,
           ],
           secondChoice: [
-            "Quick",
-            "Quick - moving fast or doing something in a short time.",
-            false,
+            "Prohibited",
+            "Prohibited- that has been forbidden; banned.",
+            true,
           ],
           thirdChoice: [
             "Rapid",
@@ -431,19 +1420,24 @@ const level = {
       },
 
       {
-        question: "What is the Antonym for <u>big</u>?",
+        question:
+          "We tried to <u>_________</u>  the vacation we had here years ago, but too much had changed.",
         answers: {
           firstChoice: [
             "Small",
             "Small - of a size that is less than normal or usual.",
-            true,
+            false,
           ],
           secondChoice: [
             "Large",
             "Large - of considerable or relatively great size, extent, or capacity.",
             false,
           ],
-          thirdChoice: ["Huge", "Huge - extremely large; enormous.", false],
+          thirdChoice: [
+            "Replicate",
+            "Replicate- make an exact copy of, reproduce. ",
+            true,
+          ],
           fourthChoice: [
             "Massive",
             "Massive - large and heavy or solid.",
@@ -453,12 +1447,13 @@ const level = {
       },
 
       {
-        question: "What is the Antonym for <u>intelligent</u>?",
+        question:
+          "The wet summer <u>________</u> beach vacations for many people.",
         answers: {
           firstChoice: [
             "Ignorant",
             "Ignorant - Lacking knowledge, information, or awareness about a particular thing.",
-            true,
+            false,
           ],
           secondChoice: [
             "Stupid",
@@ -471,19 +1466,20 @@ const level = {
             false,
           ],
           fourthChoice: [
-            "Dumb",
-            "Dumb - Temporarily unable or unwilling to speak.",
-            false,
+            "Ruined",
+            "Ruined- reduced to a state of decay, collapse, or disintegration.",
+            true,
           ],
         },
       },
 
       {
-        question: "What is the Antonym for <u>calm</u>?",
+        question:
+          "I got a great <u>_______</u> of my family standing in front of the Eiffel Tower.",
         answers: {
           firstChoice: [
-            "Agitated",
-            "Agitated - Feeling or appearing troubled or nervous.",
+            "Shot",
+            "Shot- series of frames that are shot uninterrupted from the moment the camera starts rolling until it stops.",
             true,
           ],
           secondChoice: [
@@ -505,17 +1501,18 @@ const level = {
       },
 
       {
-        question: "What is the Antonym for <u>happy</u>?",
+        question:
+          "My friend was <u>______</u>by telling everyone about her expensive jewelry. ",
         answers: {
           firstChoice: [
             "Sad",
             "Sad - Feeling or showing sorrow; unhappy.",
-            true,
+            false,
           ],
           secondChoice: [
-            "Miserable",
-            "Miserable - Wretchedly unhappy or uncomfortable.",
-            false,
+            "Showing off",
+            "Showing off- display someone or something that is a source of pride.",
+            true,
           ],
           thirdChoice: [
             "Joyless",
@@ -529,785 +1526,243 @@ const level = {
           ],
         },
       },
-
-      {
-        question: "What is the Antonym for <u>brave</u>?",
-        answers: {
-          firstChoice: [
-            "Cowardly",
-            "Cowardly - Lacking courage; fearful.",
-            true,
-          ],
-          secondChoice: [
-            "Timid",
-            "Timid - Showing a lack of courage or confidence; easily frightened.",
-            false,
-          ],
-          thirdChoice: [
-            "Fearful",
-            "Fearful - Feeling afraid; showing fear or anxiety.",
-            false,
-          ],
-          fourthChoice: ["Scared", "Scared - Afraid; frightened.", false],
-        },
-      },
-
-      {
-        question: "What is the Antonym for <u>beautiful</u>?",
-        answers: {
-          firstChoice: [
-            "Ugly",
-            "Ugly - Unpleasant or repulsive, especially in appearance.",
-            true,
-          ],
-          secondChoice: [
-            "Plain",
-            "Plain - Not particularly beautiful or attractive.",
-            false,
-          ],
-          thirdChoice: [
-            "Homely",
-            "Homely - Unattractive in appearance.",
-            false,
-          ],
-          fourthChoice: [
-            "Hideous",
-            "Hideous - Ugly or disgusting to look at.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the Synonym for <u>happy</u>?",
-        answers: {
-          firstChoice: [
-            "Joyful",
-            "Joyful - feeling, expressing, or causing great pleasure and happiness.",
-            true,
-          ],
-          secondChoice: [
-            "Grumpy",
-            "Grumpy - bad-tempered and sulky; easily annoyed.",
-            false,
-          ],
-          thirdChoice: [
-            "Cheerful",
-            "Cheerful - noticeably happy and optimistic.",
-            false,
-          ],
-          fourthChoice: [
-            "Sad",
-            "Sad - feeling or showing sorrow; unhappy.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>brave</u>?",
-        answers: {
-          firstChoice: [
-            "Courageous",
-            "Courageous - not deterred by danger or pain; brave.",
-            true,
-          ],
-          secondChoice: [
-            "Fearful",
-            "Fearful - feeling afraid; showing fear or anxiety.",
-            false,
-          ],
-          thirdChoice: [
-            "Bold",
-            "(of a person, action, or idea) showing an ability to take risks; confident and courageous.",
-            false,
-          ],
-          fourthChoice: [
-            "Timid",
-            "Timid - showing a lack of courage or confidence; easily frightened.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>beautiful</u>?",
-        answers: {
-          firstChoice: [
-            "Gorgeous",
-            "Gorgeous - beautiful; very attractive.",
-            true,
-          ],
-          secondChoice: [
-            "Ugly",
-            "Ugly - unpleasant or repulsive, especially in appearance.",
-            false,
-          ],
-          thirdChoice: [
-            "Stunning",
-            "Stunning - extremely impressive or attractive.",
-            false,
-          ],
-          fourthChoice: [
-            "Hideous",
-            "Hideous - ugly or disgusting to look at.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>calm</u>?",
-        answers: {
-          firstChoice: [
-            "Serene",
-            "Serene - calm, peaceful, and untroubled; tranquil.",
-            true,
-          ],
-          secondChoice: [
-            "Agitated",
-            "Agitated - feeling or appearing troubled or nervous.",
-            false,
-          ],
-          thirdChoice: [
-            "Relaxed",
-            "Relaxed - free from tension and anxiety; at ease.",
-            false,
-          ],
-          fourthChoice: [
-            "Hysterical",
-            "Hysterical - deriving from or affected by uncontrolled extreme emotion.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>confident</u>?",
-        answers: {
-          firstChoice: [
-            "Self-assured",
-            "Self-assured - confident in one's own abilities or character.",
-            true,
-          ],
-          secondChoice: [
-            "Doubtful",
-            "Doubtful - feeling or showing doubt; uncertain.",
-            false,
-          ],
-          thirdChoice: ["Assured", "Assured - guaranteed; sure.", false],
-          fourthChoice: [
-            "Insecure",
-            "Insecure - not confident or assured; uncertain and anxious.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>intelligent</u>?",
-        answers: {
-          firstChoice: [
-            "Smart",
-            "Smart - having or showing a quick-witted intelligence.",
-            true,
-          ],
-          secondChoice: [
-            "Clever",
-            "Clever - Quick to understand, learn, and devise or apply ideas.",
-            false,
-          ],
-          thirdChoice: [
-            "Bright",
-            "Bright - Quick to learn or understand; intelligent.",
-            false,
-          ],
-          fourthChoice: [
-            "Sharp",
-            "Sharp - Quick to notice, understand, or react.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>calm</u>?",
-        answers: {
-          firstChoice: [
-            "Serene",
-            "Serene - calm, peaceful, and untroubled; tranquil.",
-            true,
-          ],
-          secondChoice: [
-            "Tranquil",
-            "Tranquil - free from disturbance; calm.",
-            false,
-          ],
-          thirdChoice: [
-            "Peaceful",
-            "Peaceful - Free from disturbance; tranquil.",
-            false,
-          ],
-          fourthChoice: [
-            "Relaxed",
-            "Relaxed - free from tension and anxiety; at ease.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>happy</u>?",
-        answers: {
-          firstChoice: [
-            "Joyful",
-            "Joyful - feeling, expressing, or causing great pleasure and happiness.",
-            true,
-          ],
-          secondChoice: [
-            "Content",
-            "Content - In a state of peaceful happiness.",
-            false,
-          ],
-          thirdChoice: [
-            "Cheerful",
-            "Cheerful - noticeably happy and optimistic.",
-            false,
-          ],
-          fourthChoice: [
-            "Delighted",
-            "Delighted - Feeling or showing great pleasure.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the Synonym for <u>brave</u>?",
-        answers: {
-          firstChoice: [
-            "Courageous",
-            "Courageous - not deterred by danger or pain; brave.",
-            true,
-          ],
-          secondChoice: ["Fearless", "Fearless - Lacking fear.", false],
-          thirdChoice: [
-            "Valiant",
-            "Valiant - Showing courage or determination.",
-            false,
-          ],
-          fourthChoice: ["Gallant", "Gallant - Brave; heroic.", false],
-        },
-      },
-
-      {
-        question: "What is the Synonym for <u>beautiful</u>?",
-        answers: {
-          firstChoice: [
-            "Gorgeous",
-            "Gorgeous - beautiful; very attractive.",
-            true,
-          ],
-          secondChoice: [
-            "Stunning",
-            "Stunning - extremely impressive or attractive.",
-            false,
-          ],
-          thirdChoice: [
-            "Exquisite",
-            "Exquisite - Extremely beautiful and, typically, delicate.",
-            false,
-          ],
-          fourthChoice: [
-            "Lovely",
-            "Lovely - very beautiful or attractive.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the synonym of <u>Tranquility</u>?",
-        answers: {
-          firstChoice: [
-            "Calmness",
-            "Calmness - A state of peace of mind, free from agitation or excitement.",
-            true,
-          ],
-          secondChoice: [
-            "Annoyance",
-            "Annoyance - A feeling of mild displeasure or irritation.",
-            false,
-          ],
-          thirdChoice: [
-            "Contentment",
-            "Contentment - A state of peaceful happiness and satisfaction.",
-            false,
-          ],
-          fourthChoice: [
-            "Acceptance",
-            "Acceptance - The action of consenting to receive or undertake something.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the synonym of <u>Empowerment</u>?",
-        answers: {
-          firstChoice: [
-            "Enablement",
-            "Enablement - The action of making it possible for someone to do something.",
-            true,
-          ],
-          secondChoice: [
-            "Limitation",
-            "Limitation - An act or process of limiting something.",
-            false,
-          ],
-          thirdChoice: [
-            "Submission",
-            "Submission - The action of complying with someone or something.",
-            false,
-          ],
-          fourthChoice: [
-            "Doubt",
-            "Doubt - A feeling of uncertainty or lack of conviction.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the synonym of <u>Resilience</u>?",
-        answers: {
-          firstChoice: [
-            "Vulnerability",
-            "Vulnerability - The state of being susceptible to attack or damage.",
-            false,
-          ],
-          secondChoice: [
-            "Endurance",
-            "Endurance - The ability to withstand pain or hardship.",
-            true,
-          ],
-          thirdChoice: [
-            "Fragility",
-            "Fragility - The quality of being easily broken or damaged.",
-            false,
-          ],
-          fourthChoice: [
-            "Fear",
-            "Fear - An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the synonym of <u>Authenticity</u>?",
-        answers: {
-          firstChoice: [
-            "Genuineness",
-            "Genuineness - The quality of being genuine; free from pretense or falseness.",
-            true,
-          ],
-          secondChoice: [
-            "Deceit",
-            "Deceit - The action of deceiving someone; trickery.",
-            false,
-          ],
-          thirdChoice: [
-            "Vanity",
-            "Vanity - Excessive pride in one's appearance or achievements.",
-            false,
-          ],
-          fourthChoice: [
-            "Superficiality",
-            "Superficiality - Concern with the outward appearance or character of something rather than its deeper nature.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the synonym of <u>Altruism</u>?",
-        answers: {
-          firstChoice: [
-            "Selfishness",
-            "Selfishness - Excessive regard for one's own interests.",
-            false,
-          ],
-          secondChoice: [
-            "Selflessness",
-            "Selflessness - The quality of being selfless; regarding the needs or wants of others before one's own.",
-            true,
-          ],
-          thirdChoice: [
-            "Indifference",
-            "Indifference - A lack of interest or concern.",
-            false,
-          ],
-          fourthChoice: [
-            "Envy",
-            "Envy - A feeling of discontent or resentment aroused by someone else's possessions, success, or advantages.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the antonym of <u>Pleasure</u>?",
-        answers: {
-          firstChoice: [
-            "Contentment",
-            "Contentment – a state of peaceful happiness and satisfaction.",
-            false,
-          ],
-          secondChoice: [
-            "Boredom",
-            "Boredom – a lack of interest or excitement.",
-            true,
-          ],
-          thirdChoice: [
-            "Amusement",
-            "Amusement – light-hearted entertainment or enjoyment.",
-            false,
-          ],
-          fourthChoice: [
-            "Pain",
-            "Pain – physical suffering or discomfort.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the antonym of <u>Victory</u>?",
-        answers: {
-          firstChoice: [
-            "Triumph",
-            "Triumph – a great success or achievement.",
-            false,
-          ],
-          secondChoice: [
-            "Defeat",
-            "Defeat – losing in a contest or struggle.",
-            true,
-          ],
-          thirdChoice: [
-            "Conquest",
-            "Conquest – the act of conquering someone or something.",
-            false,
-          ],
-          fourthChoice: [
-            "Progress",
-            "Progress – movement towards a better state or condition.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the antonym of <u>Justice</u>?",
-        answers: {
-          firstChoice: [
-            "Fairness",
-            "Fairness – treating all people equally.",
-            false,
-          ],
-          secondChoice: [
-            "Equality",
-            "Equality – the state of all people being equal in social status.",
-            false,
-          ],
-          thirdChoice: [
-            "Injustice",
-            "Injustice – lack of fairness or justice.",
-            true,
-          ],
-          fourthChoice: [
-            "Mercy",
-            "Mercy – compassionate forgiveness of someone’s wrongdoing.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the antonym of <u>Unity</u>?",
-        answers: {
-          firstChoice: [
-            "Harmony",
-            "Harmony – a state of agreement or peaceful relations.",
-            false,
-          ],
-          secondChoice: [
-            "Cohesion",
-            "Cohesion – the act or process of uniting or being united.",
-            false,
-          ],
-          thirdChoice: [
-            "Fragmentation",
-            "Fragmentation – the act of breaking or dividing something into smaller pieces.",
-            true,
-          ],
-          fourthChoice: [
-            "Solidarity",
-            "Solidarity – unity or agreement of feeling or action, especially among individuals with a common interest.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the antonym of <u>Healthy</u>?",
-        answers: {
-          firstChoice: [
-            "Fitness",
-            "Fitness – the condition of being physically fit and healthy.",
-            false,
-          ],
-          secondChoice: [
-            "Wellness",
-            "Wellness – the state of being in good health, especially as a result of deliberate effort.",
-            false,
-          ],
-          thirdChoice: [
-            "Debility",
-            "Debility – weakness or lack of strength.",
-            true,
-          ],
-          fourthChoice: [
-            "Vitality",
-            "Vitality – physical strength and energy.",
-            false,
-          ],
-        },
-      },
     ],
   },
-  level2: {
+  orange: {
     questions: [
       {
         question:
-          "The <u>erudite</u> professor spoke on the history of philosophy.",
+          "When you use your muscles, your cells <u>consumes</u> sugar from the blood, which gives you energy.",
         answers: {
-          firstChoice: [
-            "Arrogant",
-            "Arrogant - Having or showing an exaggerated sense of one's own importance.",
-            false,
-          ],
-          secondChoice: ["Brief", "Brief - Lasting for a short time.", false],
-          thirdChoice: [
-            "Literate",
-            "Literate - Having or showing great knowledge or learning.",
-            true,
-          ],
-          fourthChoice: [
-            "Energetic",
-            "Energetic – Full of energy and enthusiasm.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "The fireflies created an <u>ephemeral</u> display of light.",
-        answers: {
-          firstChoice: [
-            "Fleeting",
-            "Fleeting - Lasting for a very short time.",
-            true,
-          ],
+          firstChoice: ["absorb", "Absorb- to take in", true],
           secondChoice: [
-            "Bright",
-            "Bright - Shining with a strong, clear light.",
+            "Seriousness",
+            "Seriousness -  refers to the quality or state of being serious.",
             false,
           ],
           thirdChoice: [
-            "Continuous",
-            "Continuous - Happening or continuing without interruption.",
+            "Simplicity",
+            "Simplicity - the quality of being easy to understand or uncomplicated.",
             false,
           ],
           fourthChoice: [
-            "Dazzling",
-            "Dazzling - So bright as to be difficult to look at.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "The <u>gregarious</u> parrot loved to chat with visitors.",
-        answers: {
-          firstChoice: ["Quiet", "Quiet - Making little or no noise.", false],
-          secondChoice: [
-            "Outgoing",
-            "Outgoing - Sociable and enjoying the company of others.",
-            true,
-          ],
-          thirdChoice: [
-            "Independent",
-            "Independent - Liking to be alone.",
-            false,
-          ],
-          fourthChoice: [
-            "Reserved",
-            " Reserved - Unwilling to talk openly or freely.",
+            "Humor",
+            "Humor - the quality of being amusing or funny.",
             false,
           ],
         },
       },
       {
         question:
-          "The <u>impecunious</u> artist struggled to afford art supplies.",
+          "This is an <u>important</u> decision, so we need to take the time to consider all our options.",
         answers: {
           firstChoice: [
-            "Creative",
-            "Creative - Able to create new and original ideas.",
+            "Ignored",
+            "Ignored: a not given attention or considered.",
             false,
           ],
-          secondChoice: [
-            "Wealthy",
-            "Wealthy - Having a large amount of money or possessions.",
-            false,
-          ],
+          secondChoice: ["Crucial", "Crucial -  extremely important", true],
           thirdChoice: [
-            "Talented",
-            "Talented - Having a natural ability to be good at something.",
+            "Celebrated",
+            "Celebrated - acknowledged with joy or approval.",
             false,
           ],
-          fourthChoice: ["Poor", "Poor - Having little or no money.", true],
-        },
-      },
-      {
-        question:
-          "The <u>malevolent</u> villain plotted to take over the world.",
-        answers: {
-          firstChoice: [
-            "Humorous",
-            "Humorous - Causing amusement or laughter.",
-            false,
-          ],
-          secondChoice: [
+          fourthChoice: [
             "Misunderstood",
-            "Misunderstood - Not understood correctly.",
-            false,
-          ],
-          thirdChoice: ["Evil", "Evil - Wishing to do bad to others.", true],
-          fourthChoice: ["Benevolent", "Benevolent – Kind and helpful.", false],
-        },
-      },
-      {
-        question:
-          "The old photographs evoked a <u>nostalgic</u> feeling for his childhood.",
-        answers: {
-          firstChoice: [
-            "Longing",
-            "Longing - Feeling a sentimental longing for the past.",
-            true,
-          ],
-          secondChoice: [
-            "Happy",
-            "Happy - Feeling or showing pleasure or satisfaction.",
-            false,
-          ],
-          thirdChoice: [
-            "Angry",
-            "Angry - Feeling or showing strong annoyance, displeasure, or hostility.",
-            false,
-          ],
-          fourthChoice: [
-            "Content",
-            "Content - Feeling satisfied with one's life or situation.",
+            "Misunderstood -incorrectly interpreted.",
             false,
           ],
         },
       },
       {
         question:
-          "The politician <u>obfuscated</u> the issue with complex jargon.",
+          "The <u>allotment</u> of the population across many countries is uneven. More people live in cities than in rural areas.",
         answers: {
           firstChoice: [
-            "Confuse",
-            "Confuse - To make something difficult to understand.",
-            true,
+            "Agreement",
+            "Agreement: refers to a mutual understanding, arrangement, or contract reached between two or more parties.",
+            false,
           ],
           secondChoice: [
-            "Clarified",
-            "Clarified - Made something easier to understand.",
+            "Conflict",
+            "Conflict -  a serious disagreement or argument.",
             false,
           ],
           thirdChoice: [
-            "Explained",
-            "Explained - Made something clear and easy to understand.",
-            false,
-          ],
-          fourthChoice: [
-            "Simplified",
-            "Simplified - Made something less complex.",
-            false,
-          ],
-        },
-      },
-
-      {
-        question:
-          "By <u>serendipity</u>, she found the lost necklace while searching for something else.",
-        answers: {
-          firstChoice: [
-            "Skill",
-            "Skill - The ability to do something well.",
-            false,
-          ],
-          secondChoice: [
-            "Effort",
-            "Effort - Putting physical or mental energy into a task.",
-            false,
-          ],
-          thirdChoice: [
-            "Planning",
-            "Planning - Making a decision or arrangement about something that is going to happen in the future.",
-            false,
-          ],
-          fourthChoice: [
-            "Luck",
-            "Luck - The occurrence and development of events by chance in a happy or beneficial way.",
+            "Distribution",
+            "Distribution - the way things or people are spread out in an area.",
             true,
           ],
-        },
-      },
-      {
-        question: "The <u>stoic</u> soldier faced danger without fear.",
-        answers: {
-          firstChoice: [
-            "Panicked",
-            "Panicked - Suddenly feeling or showing great fear and anxiety.",
-            false,
-          ],
-          secondChoice: [
-            "Terrified",
-            "Terrified - Feeling or showing extreme fear.",
-            false,
-          ],
-          thirdChoice: ["Impassive", "Impassive - Calm and unemotional.", true],
           fourthChoice: [
-            "Jittery",
-            "Jittery - Feeling nervous or restless.",
+            "Breakdown",
+            "Breakdown -a failure in progress or communication.",
             false,
           ],
         },
       },
       {
         question:
-          "The street performers provided <u>transient</u> entertainment for the passersby.",
+          "Due to its length, many people say a marathon is the greatest test of an athlete’s <u>tolerance</u>.",
         answers: {
           firstChoice: [
-            "Captivating",
-            "Captivating - Holding someone's attention completely.",
+            "Enthusiastic",
+            "Enthusiastic: showing intense and eager enjoyment or interest.",
             false,
           ],
           secondChoice: [
-            "Temporary",
-            "Temporary - Lasting for a short time.",
-            true,
+            "Diligent",
+            "Diligent -  showing careful and persistent work effort.",
+            false,
           ],
           thirdChoice: [
-            "Entertainment",
-            "Entertainment – holds interest, gives pleasure and delight.",
+            "Meticulous",
+            "Meticulous - showing great attention to detail.",
             false,
           ],
           fourthChoice: [
-            "Permanent",
-            "Permanent – stable, without significant change.",
+            "Endurance",
+            "Endurance -the ability to do something difficult or painful for a long time.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "Sales of celebrity-sponsored shoes have been <u>eruptive</u>. Everyone is buying them.",
+        answers: {
+          firstChoice: [
+            "Preserve",
+            "Preserve: maintained in its original state.",
             false,
+          ],
+          secondChoice: [
+            "Illuminated",
+            "Illuminated -  lit up or made bright.",
+            false,
+          ],
+          thirdChoice: [
+            "Destroyed",
+            "Destroyed - put an end to the existence of something.",
+            false,
+          ],
+          fourthChoice: [
+            "Explosive",
+            "Explosive - having a sudden and great force.",
+            true,
+          ],
+        },
+      },
+      {
+        question:
+          "In the summer, temperature reach their <u>highest</u> in the afternoon before cooling down later.",
+        answers: {
+          firstChoice: ["Peak", "Peak- the highest point.", true],
+          secondChoice: [
+            "Determination",
+            "Determination -  firmness of purpose.",
+            false,
+          ],
+          thirdChoice: [
+            "Indifference",
+            "Indifference - lack of interest, concern, or sympathy.",
+            false,
+          ],
+          fourthChoice: [
+            "Hesitation",
+            "Hesitation - the action of pausing or delaying.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "A retail company will collect useful data to create a customer <u>database</u>.",
+        answers: {
+          firstChoice: [
+            "Obscured",
+            "Obscured: made unclear or difficult to see.",
+            false,
+          ],
+          secondChoice: [
+            "Profile",
+            "Profile -  a description of someone’s characteristics.",
+            true,
+          ],
+          thirdChoice: [
+            "Diminished",
+            "Diminished - made smaller or less important.",
+            false,
+          ],
+          fourthChoice: [
+            "Questioned",
+            "Questioned - expressed doubt or uncertainty about.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Strong wind <u>protection</u> will slow down a runner or biker.",
+        answers: {
+          firstChoice: [
+            "Resistance",
+            "Resistance- a force that stops something or slows it down.",
+            true,
+          ],
+          secondChoice: ["Disarray", "Disarray -  a state of disorder", false],
+          thirdChoice: [
+            "Conflict",
+            "Conflict - a serious disagreement or argument.",
+            false,
+          ],
+          fourthChoice: [
+            "Skepticism",
+            "Skepticism - an attitude of doubt.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "A goal of the International Olympic Committee is to  <u>provoke</u> interests in athletics.",
+        answers: {
+          firstChoice: [
+            "Convoluted",
+            "Convoluted: extremely complex and difficult to follow.",
+            false,
+          ],
+          secondChoice: [
+            "Stimulate",
+            "Stimulate -  open to more than one interpretation.to encourage growth or development",
+            true,
+          ],
+          thirdChoice: [
+            "Concise",
+            "Concise - giving a lot of information clearly and in a few words.",
+            false,
+          ],
+          fourthChoice: [
+            "Complex",
+            "Complex -consisting of many different and connected parts.",
+            false,
+          ],
+        },
+      },
+      {
+        question:
+          "Every four years, the World Cup <u>controls</u> the sport news. Other sports, barely get mentioned.",
+        answers: {
+          firstChoice: [
+            "Ignored",
+            "Ignored: not given attention or considered.",
+            false,
+          ],
+          secondChoice: ["Repealed", "Repealed -  revoked or annulled.", false],
+          thirdChoice: ["Postponed", "Postponed - delayed.", false],
+          fourthChoice: [
+            "Dominates",
+            "Dominates -to be the most important or to control.",
+            true,
           ],
         },
       },

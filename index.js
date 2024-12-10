@@ -56,6 +56,7 @@ collisionsMap.forEach((row, i) => {
             x: j * Boundary.width + offset.x,
             y: i * Boundary.height + offset.y,
           },
+          zoneType: symbol, // Store the symbol in the boundary
         })
       );
   });
@@ -65,13 +66,22 @@ const battleZones = [];
 
 battleZonesMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
-    if (symbol === 1025)
+    if (
+      symbol === 1025 ||
+      symbol === 165 ||
+      symbol === 820 ||
+      symbol === 468 ||
+      symbol === 472 ||
+      symbol === 3289 ||
+      symbol === 3251
+    )
       battleZones.push(
         new Boundary({
           position: {
             x: j * Boundary.width + offset.x,
             y: i * Boundary.height + offset.y,
           },
+          zoneType: symbol, // Store the symbol in the boundary
         })
       );
   });
@@ -240,6 +250,9 @@ function animate() {
         overlappingArea > (player.width * player.height) / 2 &&
         Math.random() < 0.02
       ) {
+        console.log(
+          `Player is stepping on Zone with type: ${battleZone.zoneType}`
+        );
         // deactivate current animation loop
         window.cancelAnimationFrame(animationId);
 
@@ -260,7 +273,7 @@ function animate() {
               onComplete() {
                 // activate a new animation loop
                 initBattle();
-                displayRandomQuestion();
+                displayRandomQuestion(battleZone.zoneType);
                 animateBattle();
                 document.getElementById("levelBoard").style.display = "none";
                 document.getElementById("hamburger").style.display = "none";
@@ -484,7 +497,6 @@ let randomQuestion;
 let currentQuestionIndex = 0;
 
 let usedLevel1QuestionIndices = new Set();
-let usedLevel2QuestionIndices = new Set();
 
 function getRandomQuestionIndex(max, usedIndicesSet) {
   let randomIndex;
@@ -505,23 +517,58 @@ function getRandomQuestionIndex(max, usedIndicesSet) {
   return randomIndex;
 }
 
-function displayRandomQuestion() {
+function displayRandomQuestion(symbol) {
   document.querySelector("#dialogueBox").style.display = "block";
 
-  if (myLevel >= 15) {
-    const maxLevel2Questions = level.level2.questions.length;
-    currentQuestionIndex = getRandomQuestionIndex(
-      maxLevel2Questions,
-      usedLevel2QuestionIndices
-    );
-    randomQuestion = level.level2.questions[currentQuestionIndex];
-  } else {
-    const maxLevel1Questions = level.level1.questions.length;
+  if (symbol === 468) {
+    const maxLevel1Questions = level.kiwi.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
       usedLevel1QuestionIndices
     );
-    randomQuestion = level.level1.questions[currentQuestionIndex];
+    randomQuestion = level.kiwi.questions[currentQuestionIndex];
+  } else if (symbol === 820) {
+    const maxLevel1Questions = level.watermelon.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.watermelon.questions[currentQuestionIndex];
+  } else if (symbol === 3251) {
+    const maxLevel1Questions = level.pineapple.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.pineapple.questions[currentQuestionIndex];
+  } else if (symbol === 472) {
+    const maxLevel1Questions = level.strawberry.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.strawberry.questions[currentQuestionIndex];
+  } else if (symbol === 3289) {
+    const maxLevel1Questions = level.banana.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.banana.questions[currentQuestionIndex];
+  } else if (symbol === 1025) {
+    const maxLevel1Questions = level.apple.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.apple.questions[currentQuestionIndex];
+  } else if (symbol === 165) {
+    const maxLevel1Questions = level.orange.questions.length;
+    currentQuestionIndex = getRandomQuestionIndex(
+      maxLevel1Questions,
+      usedLevel1QuestionIndices
+    );
+    randomQuestion = level.orange.questions[currentQuestionIndex];
   }
 
   const dialogueBox = document.getElementById("dialogueBox");
@@ -632,7 +679,7 @@ function displayRandomQuestion() {
 
       displayMeaning(answer[1]);
 
-      displayRandomQuestion();
+      displayRandomQuestion(symbol);
     });
   });
 }
