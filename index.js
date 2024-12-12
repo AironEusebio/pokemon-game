@@ -248,7 +248,7 @@ function animate() {
           rectangle2: battleZone,
         }) &&
         overlappingArea > (player.width * player.height) / 2 &&
-        Math.random() < 0.02
+        Math.random() < 0.008
       ) {
         console.log(
           `Player is stepping on Zone with type: ${battleZone.zoneType}`
@@ -496,7 +496,13 @@ function displayMeaning(meaning) {
 let randomQuestion;
 let currentQuestionIndex = 0;
 
-let usedLevel1QuestionIndices = new Set();
+let appleIndexes = new Set();
+let orangeIndexes = new Set();
+let pineappleIndexes = new Set();
+let watermelonIndexes = new Set();
+let kiwiIndexes = new Set();
+let bananaIndexes = new Set();
+let strawberryIndexes = new Set();
 
 function getRandomQuestionIndex(max, usedIndicesSet) {
   let randomIndex;
@@ -524,49 +530,49 @@ function displayRandomQuestion(symbol) {
     const maxLevel1Questions = level.kiwi.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      kiwiIndexes
     );
     randomQuestion = level.kiwi.questions[currentQuestionIndex];
   } else if (symbol === 820) {
     const maxLevel1Questions = level.watermelon.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      watermelonIndexes
     );
     randomQuestion = level.watermelon.questions[currentQuestionIndex];
   } else if (symbol === 3251) {
     const maxLevel1Questions = level.pineapple.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      pineappleIndexes
     );
     randomQuestion = level.pineapple.questions[currentQuestionIndex];
   } else if (symbol === 472) {
     const maxLevel1Questions = level.strawberry.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      strawberryIndexes
     );
     randomQuestion = level.strawberry.questions[currentQuestionIndex];
   } else if (symbol === 3289) {
     const maxLevel1Questions = level.banana.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      bananaIndexes
     );
     randomQuestion = level.banana.questions[currentQuestionIndex];
   } else if (symbol === 1025) {
     const maxLevel1Questions = level.apple.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      appleIndexes
     );
     randomQuestion = level.apple.questions[currentQuestionIndex];
   } else if (symbol === 165) {
     const maxLevel1Questions = level.orange.questions.length;
     currentQuestionIndex = getRandomQuestionIndex(
       maxLevel1Questions,
-      usedLevel1QuestionIndices
+      orangeIndexes
     );
     randomQuestion = level.orange.questions[currentQuestionIndex];
   }
@@ -632,10 +638,15 @@ function displayRandomQuestion(symbol) {
               gsap.to("#levelBoard", {
                 opacity: 0,
                 onComplete: () => {
-                  myExp += 25;
+                  myExp += 10;
                   if (myExp >= maxExp) {
-                    myExp = 0;
-                    myLevel += 1;
+                    if (myLevel < 3) {
+                      myExp = 0;
+                      myLevel += 1;
+                    }
+                  }
+                  if (myLevel >= 3) {
+                    myExp = maxExp;
                   }
                   gsap.to("#levelBoard", {
                     opacity: 1,
@@ -857,8 +868,8 @@ document.getElementById("hamburger").addEventListener("click", () => {
 document.getElementById("downloadBtn").addEventListener("click", function () {
   const playerName = document.getElementById("playerName").value;
 
-  if (myLevel < 30) {
-    showModal("Reach Level 30 First!");
+  if (myLevel < 3) {
+    showModal("Reach Level 3 First!");
     document.getElementById("playerName").value = "";
     return;
   }
@@ -871,10 +882,10 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
   const { jsPDF } = window.jspdf;
 
   if (jsPDF) {
-    const doc = new jsPDF();
+    const doc = new jsPDF("landscape"); // Set orientation to landscape
 
     // Base64 encoded image data
-    const imgData = "public/img/CERTIFICATE OF COMPLETION.png"; // Replace with actual base64 string
+    const imgData = "public/img/CERTIFICATE OF COMPLETION.jpg"; // Replace with actual base64 string
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
@@ -900,27 +911,20 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
       doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
 
       // Player's name
+
       doc.setFont("courier", "bold");
-
-      doc.setFontSize(30);
+      doc.setFontSize(35);
       doc.setTextColor(0, 0, 0);
-      doc.text(playerName, 105, 130, { align: "center" });
-
-      doc.setFontSize(30);
-      doc.setTextColor(255, 255, 255);
-      doc.text(playerName, 105.3, 130.3, { align: "center" });
+      doc.text(playerName, pageWidth / 2, 98, { align: "center" });
 
       // Date of completion
       const completionDate = new Date().toLocaleDateString();
       doc.setFont("courier", "bold");
-
-      doc.setFontSize(20);
+      doc.setFontSize(15);
       doc.setTextColor(0, 0, 0);
-      doc.text(`Date: ${completionDate}`, 105, 205, { align: "center" });
-
-      doc.setFontSize(20);
-      doc.setTextColor(255, 255, 255);
-      doc.text(`Date: ${completionDate}`, 105.3, 205.3, { align: "center" });
+      doc.text(`Given this date of ${completionDate}`, pageWidth / 2, 170, {
+        align: "center",
+      });
 
       // Save the PDF
       doc.save("game-completion-certificate.pdf");
