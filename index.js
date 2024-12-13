@@ -23,7 +23,7 @@ playerLeftImage.src = "./img/playerLeft.png";
 const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
 
-let myLevel = 3;
+let myLevel = 1;
 let myExp = 0; // Current EXP
 let maxExp = 100; // EXP needed for next level
 
@@ -868,14 +868,12 @@ document.getElementById("hamburger").addEventListener("click", () => {
 document.getElementById("downloadBtn").addEventListener("click", function () {
   const playerName = document.getElementById("playerName").value;
 
-  // Ensure player has reached level 3
   if (myLevel < 3) {
     showModal("Reach Level 3 First!");
     document.getElementById("playerName").value = "";
     return;
   }
 
-  // Ensure the player's name is not empty
   if (playerName.trim() === "") {
     showModal("Please enter your name.");
     return;
@@ -886,20 +884,19 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
   if (jsPDF) {
     const doc = new jsPDF("landscape"); // Set orientation to landscape
 
-    // Load image
-    const img = new Image();
-    img.crossOrigin = "Anonymous"; // Ensure CORS issues are avoided
-    img.src = `public/img/CERTIFICATE OF COMPLETION.jpg?timestamp=${new Date().getTime()}`; // Add timestamp to prevent caching
+    // Base64 encoded image data
+    const imgData = "public/img/CERTIFICATE OF COMPLETION.jpg"; // Replace with actual base64 string
 
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const img = new Image();
+    img.src = imgData;
     img.onload = function () {
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const pageHeight = doc.internal.pageSize.getHeight();
       const imgAspectRatio = img.width / img.height;
       const pageAspectRatio = pageWidth / pageHeight;
 
       let imgWidth, imgHeight;
-
-      // Maintain aspect ratio
       if (imgAspectRatio > pageAspectRatio) {
         imgWidth = pageWidth;
         imgHeight = pageWidth / imgAspectRatio;
@@ -908,19 +905,19 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         imgWidth = pageHeight * imgAspectRatio;
       }
 
-      // Center the image
       const imgX = (pageWidth - imgWidth) / 2;
       const imgY = (pageHeight - imgHeight) / 2;
 
       doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
 
-      // Add player's name
+      // Player's name
+
       doc.setFont("courier", "bold");
       doc.setFontSize(35);
       doc.setTextColor(0, 0, 0);
       doc.text(playerName, pageWidth / 2, 98, { align: "center" });
 
-      // Add completion date
+      // Date of completion
       const completionDate = new Date().toLocaleDateString();
       doc.setFont("courier", "bold");
       doc.setFontSize(15);
@@ -935,16 +932,11 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
 
     img.onerror = function () {
       console.error("Image failed to load.");
-      showModal(
-        "Error: Certificate image could not be loaded. Please try again."
-      );
     };
 
-    // Clear input field
     document.getElementById("playerName").value = "";
   } else {
     console.error("jsPDF is not loaded correctly.");
-    showModal("Error: PDF generation is unavailable.");
   }
 });
 
