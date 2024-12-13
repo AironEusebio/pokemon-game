@@ -866,23 +866,18 @@ document.getElementById("hamburger").addEventListener("click", () => {
 
 // Download pdf
 document.getElementById("downloadBtn").addEventListener("click", function () {
-  const playerName = document.getElementById("playerName").value.trim();
+  const playerName = document.getElementById("playerName").value;
 
-  // Validate player level
+  // Ensure player has reached level 3
   if (myLevel < 3) {
     showModal("Reach Level 3 First!");
     document.getElementById("playerName").value = "";
     return;
   }
 
-  // Validate player name
-  if (playerName === "") {
+  // Ensure the player's name is not empty
+  if (playerName.trim() === "") {
     showModal("Please enter your name.");
-    return;
-  }
-
-  if (playerName.length > 25) {
-    showModal("Name cannot exceed 25 characters.");
     return;
   }
 
@@ -891,19 +886,20 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
   if (jsPDF) {
     const doc = new jsPDF("landscape"); // Set orientation to landscape
 
-    // Base64 encoded image data
-    const imgData = "public/img/CERTIFICATE OF COMPLETION.jpg"; // Replace with actual base64 string
-
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-
+    // Load image
     const img = new Image();
-    img.src = imgData;
+    img.crossOrigin = "Anonymous"; // Ensure CORS issues are avoided
+    img.src = `public/img/CERTIFICATE OF COMPLETION.jpg?timestamp=${new Date().getTime()}`; // Add timestamp to prevent caching
+
     img.onload = function () {
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
       const imgAspectRatio = img.width / img.height;
       const pageAspectRatio = pageWidth / pageHeight;
 
       let imgWidth, imgHeight;
+
+      // Maintain aspect ratio
       if (imgAspectRatio > pageAspectRatio) {
         imgWidth = pageWidth;
         imgHeight = pageWidth / imgAspectRatio;
@@ -912,18 +908,19 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         imgWidth = pageHeight * imgAspectRatio;
       }
 
+      // Center the image
       const imgX = (pageWidth - imgWidth) / 2;
       const imgY = (pageHeight - imgHeight) / 2;
 
       doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
 
-      // Add player name
+      // Add player's name
       doc.setFont("courier", "bold");
       doc.setFontSize(35);
       doc.setTextColor(0, 0, 0);
       doc.text(playerName, pageWidth / 2, 98, { align: "center" });
 
-      // Add date of completion
+      // Add completion date
       const completionDate = new Date().toLocaleDateString();
       doc.setFont("courier", "bold");
       doc.setFontSize(15);
@@ -932,27 +929,22 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         align: "center",
       });
 
-      // Use Blob for download
-      const pdfBlob = doc.output("blob");
-      const blobUrl = URL.createObjectURL(pdfBlob);
-
-      const link = document.createElement("a");
-      link.href = blobUrl;
-      link.download = "game-completion-certificate.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Save the PDF
+      doc.save("game-completion-certificate.pdf");
     };
 
     img.onerror = function () {
       console.error("Image failed to load.");
-      showModal("Error: Certificate image could not be loaded.");
+      showModal(
+        "Error: Certificate image could not be loaded. Please try again."
+      );
     };
 
+    // Clear input field
     document.getElementById("playerName").value = "";
   } else {
     console.error("jsPDF is not loaded correctly.");
-    showModal("Error: Certificate generation is unavailable.");
+    showModal("Error: PDF generation is unavailable.");
   }
 });
 
