@@ -866,16 +866,23 @@ document.getElementById("hamburger").addEventListener("click", () => {
 
 // Download pdf
 document.getElementById("downloadBtn").addEventListener("click", function () {
-  const playerName = document.getElementById("playerName").value;
+  const playerName = document.getElementById("playerName").value.trim();
 
+  // Validate player level
   if (myLevel < 3) {
     showModal("Reach Level 3 First!");
     document.getElementById("playerName").value = "";
     return;
   }
 
-  if (playerName.trim() === "") {
+  // Validate player name
+  if (playerName === "") {
     showModal("Please enter your name.");
+    return;
+  }
+
+  if (playerName.length > 25) {
+    showModal("Name cannot exceed 25 characters.");
     return;
   }
 
@@ -910,14 +917,13 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
 
       doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
 
-      // Player's name
-
+      // Add player name
       doc.setFont("courier", "bold");
       doc.setFontSize(35);
       doc.setTextColor(0, 0, 0);
       doc.text(playerName, pageWidth / 2, 98, { align: "center" });
 
-      // Date of completion
+      // Add date of completion
       const completionDate = new Date().toLocaleDateString();
       doc.setFont("courier", "bold");
       doc.setFontSize(15);
@@ -926,17 +932,27 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         align: "center",
       });
 
-      // Save the PDF
-      doc.save("game-completion-certificate.pdf");
+      // Use Blob for download
+      const pdfBlob = doc.output("blob");
+      const blobUrl = URL.createObjectURL(pdfBlob);
+
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = "game-completion-certificate.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     };
 
     img.onerror = function () {
       console.error("Image failed to load.");
+      showModal("Error: Certificate image could not be loaded.");
     };
 
     document.getElementById("playerName").value = "";
   } else {
     console.error("jsPDF is not loaded correctly.");
+    showModal("Error: Certificate generation is unavailable.");
   }
 });
 
