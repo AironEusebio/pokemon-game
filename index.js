@@ -23,7 +23,7 @@ playerLeftImage.src = "./img/playerLeft.png";
 const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
 
-let myLevel = 1;
+let myLevel = 3;
 let myExp = 0; // Current EXP
 let maxExp = 100; // EXP needed for next level
 
