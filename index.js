@@ -1,6 +1,17 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
-audio.Map.play();
+
+let myLevel = 2;
+let myExp = 90; // Current EXP
+let maxExp = 100; // EXP needed for next level
+
+if (myLevel == 1) {
+  audio.Map.play();
+} else if (myLevel == 2) {
+  audio.level2.play();
+} else {
+  audio.level3.play();
+}
 canvas.width = 1024;
 canvas.height = 576;
 
@@ -22,10 +33,6 @@ playerLeftImage.src = "./img/playerLeft.png";
 
 const playerRightImage = new Image();
 playerRightImage.src = "./img/playerRight.png";
-
-let myLevel = 1;
-let myExp = 0; // Current EXP
-let maxExp = 100; // EXP needed for next level
 
 const collisionsMap = [];
 
@@ -257,6 +264,9 @@ function animate() {
         window.cancelAnimationFrame(animationId);
 
         audio.Map.stop();
+        audio.level2.stop();
+        audio.level3.stop();
+
         audio.initBattle.play();
         audio.battle.play();
 
@@ -634,7 +644,7 @@ function displayRandomQuestion(symbol) {
               });
               battle.initiated = false;
               audio.battle.stop();
-              audio.Map.play();
+
               gsap.to("#levelBoard", {
                 opacity: 0,
                 onComplete: () => {
@@ -651,6 +661,14 @@ function displayRandomQuestion(symbol) {
                   gsap.to("#levelBoard", {
                     opacity: 1,
                   });
+
+                  if (myLevel == 1) {
+                    audio.Map.play();
+                  } else if (myLevel == 2) {
+                    audio.level2.play();
+                  } else {
+                    audio.level3.play();
+                  }
                 },
               });
             },
@@ -673,13 +691,20 @@ function displayRandomQuestion(symbol) {
               });
               battle.initiated = false;
               audio.battle.stop();
-              audio.Map.play();
               gsap.to("#levelBoard", {
                 opacity: 0,
                 onComplete: () => {
                   gsap.to("#levelBoard", {
                     opacity: 1,
                   });
+
+                  if (myLevel == 1) {
+                    audio.Map.play();
+                  } else if (myLevel == 2) {
+                    audio.level2.play();
+                  } else {
+                    audio.level3.play();
+                  }
                 },
               });
             },
@@ -829,7 +854,17 @@ let clicked = false;
 
 addEventListener("click", () => {
   if (!clicked) {
-    audio.Map.play();
+    if (myLevel == 1) {
+      audio.Map.stop();
+      audio.Map.play();
+    } else if (myLevel == 2) {
+      audio.level2.stop();
+      audio.level2.play();
+    } else {
+      audio.level3.play();
+      audio.level3.play();
+    }
+
     clicked = true;
   }
 });
