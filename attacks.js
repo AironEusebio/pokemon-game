@@ -131,7 +131,6 @@ const level = {
           fourthChoice: ["Evolve", "Evolve- to change slowly over time.", true],
         },
       },
-
       {
         question: "Describing places with well-developed manufacturing.",
         answers: {
@@ -157,7 +156,6 @@ const level = {
           ],
         },
       },
-
       {
         question: "Natural from birth.",
         answers: {
@@ -175,7 +173,6 @@ const level = {
           ],
         },
       },
-
       {
         question: "The beginning or cause of something.",
         answers: {
@@ -384,7 +381,7 @@ const level = {
             false,
           ],
           thirdChoice: [
-            "Vanity",
+            "Episodes",
             "Episodes- an event or a group of events occurring as part of a sequence; an incident or period.",
             true,
           ],
@@ -423,11 +420,11 @@ const level = {
       {
         question: "In a pure manner.",
         answers: {
-          firstChoice: ["Purely", "Purely- in a pure manner.", false],
+          firstChoice: ["Purely", "Purely- in a pure manner.", true],
           secondChoice: [
             "Boredom",
             "Boredom – a lack of interest or excitement.",
-            true,
+            false,
           ],
           thirdChoice: [
             "Amusement",
@@ -656,7 +653,7 @@ const level = {
             "Misunderstood - Not understood correctly.",
             false,
           ],
-          thirdChoice: ["Evil", "Evil - Wishing to do bad to others.", true],
+          thirdChoice: ["Evil", "Evil - Wishing to do bad to others.", false],
           fourthChoice: ["Benevolent", "Benevolent- Kind and helpful.", false],
         },
       },
@@ -753,7 +750,11 @@ const level = {
             "Terrified - Feeling or showing extreme fear.",
             false,
           ],
-          thirdChoice: ["Impassive", "Impassive - Calm and unemotional.", true],
+          thirdChoice: [
+            "Impassive",
+            "Impassive - Calm and unemotional.",
+            false,
+          ],
           fourthChoice: [
             "Jittery",
             "Jittery - Feeling nervous or restless.",
@@ -1090,7 +1091,7 @@ const level = {
         answers: {
           firstChoice: [
             "Potential",
-            "Guilty - Potential- having qualities or abilities that may be developed and lead to future success or usefulness.",
+            "Potential- having qualities or abilities that may be developed and lead to future success or usefulness.",
             true,
           ],
           secondChoice: [
@@ -1117,12 +1118,12 @@ const level = {
           firstChoice: [
             "Revealed",
             "Revealed- make previously unknown or secret information known to others.",
-            false,
+            true,
           ],
           secondChoice: [
             "Radiant",
             "Radiant - Sending out light; shining or glowing brightly.",
-            true,
+            false,
           ],
           thirdChoice: [
             "Tranquil",
@@ -1250,7 +1251,7 @@ const level = {
             false,
           ],
           secondChoice: [
-            "Amiable",
+            "Captured",
             "Captured- take into one’s possession or control by force.",
             true,
           ],
@@ -1262,31 +1263,6 @@ const level = {
           fourthChoice: [
             "Exuberant",
             "Exuberant - Filled with or characterized by a lively energy and excitement.",
-            false,
-          ],
-        },
-      },
-      {
-        question: "What is the Synonym for <u>courageous</u>?",
-        answers: {
-          firstChoice: [
-            "Mysterious",
-            "Mysterious - Difficult or impossible to understand, explain, or identify.",
-            false,
-          ],
-          secondChoice: [
-            "Brave",
-            "Brave - Not deterred by any danger or pain.",
-            true,
-          ],
-          thirdChoice: [
-            "Wealthy",
-            "Wealthy - Having a great deal of money, resources, or assets.",
-            false,
-          ],
-          fourthChoice: [
-            "Generous",
-            "Generous - Well meaning and kindly.",
             false,
           ],
         },
