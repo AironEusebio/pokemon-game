@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
-let myLevel = 1;
-let myExp = 0; // Current EXP
+let myLevel = 3;
+let myExp = 100; // Current EXP
 let maxExp = 100; // EXP needed for next level
 
 if (myLevel == 1) {
@@ -257,9 +257,7 @@ function animate() {
         overlappingArea > (player.width * player.height) / 2 &&
         Math.random() < 0.008
       ) {
-        console.log(
-          `Player is stepping on Zone with type: ${battleZone.zoneType}`
-        );
+        grassSymbol = battleZone.zoneType;
         // deactivate current animation loop
         window.cancelAnimationFrame(animationId);
 
@@ -491,6 +489,9 @@ document.querySelector("#answerBox").addEventListener("click", () => {
   document.querySelector("#answerBox").style.display = "none";
 });
 
+let previousQuestion = null;
+let grassSymbol = null;
+
 function displayMeaning(meaning) {
   const dialogueBox = document.getElementById("answerBox");
   document.querySelector("#answerBox").style.display = "block";
@@ -522,13 +523,18 @@ function getRandomQuestionIndex(max, usedIndicesSet) {
     usedIndicesSet.clear();
   }
 
-  // Generate a new random index until it's not in the Set
-  do {
-    randomIndex = Math.floor(Math.random() * max);
-  } while (usedIndicesSet.has(randomIndex));
+  if (previousQuestion === null) {
+    // Generate a new random index until it's not in the Set
+    do {
+      randomIndex = Math.floor(Math.random() * max);
+    } while (usedIndicesSet.has(randomIndex));
 
-  // Add the new random index to the Set
-  usedIndicesSet.add(randomIndex);
+    // Add the new random index to the Set
+    usedIndicesSet.add(randomIndex);
+    previousQuestion = randomIndex;
+  } else {
+    randomIndex = previousQuestion;
+  }
 
   return randomIndex;
 }
@@ -607,6 +613,7 @@ function displayRandomQuestion(symbol) {
     buttonContainer.appendChild(button);
 
     button.addEventListener("click", () => {
+      previousQuestion = null;
       const selectedAttack = attacks[button.textContent];
       if (answer[2]) {
         emby.attack({
@@ -719,6 +726,10 @@ function displayRandomQuestion(symbol) {
     });
   });
 }
+
+document.getElementById("backButton").addEventListener("click", () => {
+  displayRandomQuestion(grassSymbol);
+});
 
 // displayRandomQuestion();
 
