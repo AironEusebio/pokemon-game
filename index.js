@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
-let myLevel = 3;
-let myExp = 100; // Current EXP
+let myLevel = 1;
+let myExp = 0; // Current EXP
 let maxExp = 100; // EXP needed for next level
 
 if (myLevel == 1) {
