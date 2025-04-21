@@ -198,8 +198,9 @@ function animate() {
 
   // Create gem icon inside EXP bar
   const gemIcon = document.createElement("img");
-  gemIcon.src =
-    "https://img.icons8.com/?size=100&id=Tam1qz0xqNlN&format=png&color=000000"; // Replace with your gem image URL
+  // gemIcon.src =
+  //   "https://img.icons8.com/?size=100&id=Tam1qz0xqNlN&format=png&color=000000"; // Replace with your gem image URL
+  gemIcon.src = "https://icons8.com/icon/5vGNMY3d8lxd/gem-stone";
   gemIcon.alt = "Gem Icon";
   gemIcon.style.position = "absolute";
   gemIcon.style.top = "50%";
